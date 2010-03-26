@@ -1,0 +1,572 @@
+\documentclass[twoside]{EPURapport}
+\entitylogo{geovelo.pdf}
+\input{include.tex}
+\usepackage{algorithm}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{color}
+\definecolor{gray}{rgb}{0.9,0.9,0.9}
+\definecolor{lightgrey}{rgb}{0.95,0.95,0.95}
+\definecolor{navy}{rgb}{0,0,0.5}
+\usepackage[babel=true,kerning=true]{microtype}
+\lstset{
+	backgroundcolor=\color{lightgrey},
+	frame=single,
+	captionpos=b,
+	breaklines=true,
+	basicstyle=\ttfamily\footnotesize,
+	language=C,
+	tabsize=2,
+	keywordstyle=\color{navy}\bfseries,
+	commentstyle=\color{red}\textit,
+	stringstyle=\color{teal}\ttfamily,
+	showtabs=false,
+	showspaces=false,
+	showstringspaces=true
+}
+
+\thedocument{Projet de Fin d'Etude}
+{Nouveaux critères pour du calcul d'itinéraire vélo}
+{Nouveaux critères pour du calcul d'itinéraire vélo}
+
+\grade{Département Informatique\\ 5\ieme{} année\\ 2009 - 2010}
+
+\authors{%
+	\category{Etudiant}{%
+		\name{Ke SHANG} \mail{ke.shang@etu.univ-tours.fr}
+			}
+	\details{DI5 2009 - 2010}
+}
+
+\supervisors{%
+	\category{Encadrants}{%
+		\name{Gaël Sauvanet} \mail{gael.sauvanet@univ-tours.fr}
+		\name{Emmanuel Néron} \mail{emmanuel.neron@univ-tours.fr}		
+	}
+	\details{Université Fran\c{c}ois-Rabelais, Tours}
+}
+
+\abstracts{Description en français}
+{Mots clés français}
+{Description en anglais}
+{Mots clés en anglais}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Remerciements %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Remerciements}
+Je souhaite tout d'abord remercier beaucoup Gaël Sauvanet pour m'avoir donné toutes les informations nécessaires et tous les conseils. Il m'a aidé tout au long du projet de fin d'étude. Son point de vue m'a été d'une grande utilité pour la compréhension du fonctionnement du système existant. Il m'a expliqué clairement et m'a guidé pour les réflexions concernant les algorithmes.
+	
+Un merci à Emmanuel Néron pour ses instructions et ses connaissances. Il m'a proposé des bonnes idées concernant ce projet.
+	
+Enfin, merci à tous ceux qui m'ont aidé durant la période du projet de fin d'étude.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Introduction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Introduction}
+Lors de la cinquième année du cycle d'ingénieur de l'École Polytechnique de l'Université de Tours Département Informatique. Nous devons effectuer un Projet de Fin d'Étude(PFE) du 10/2009 au 5/2010. Le but est de familiariser les étudiants avec les compétences acquises en cours et d'en acquérir de nouvelles.
+	
+Le sujet du projet de fin d'étude est "Nouveaux critères pour du calcul d'itinéraire vélo". Ce projet est basé sur des travaux de mon encadrant Gaël Sauvanet et l'étudiante Juan Zhang dans le cadre du projet Géovélo réalisé par l'association Autour du Train. L'objectif de ce projet de de mettre en place un nouvel algorithme et implémenter des nouveaux critères.
+ 	
+Dans ce rapport, je vais d'abord présenter mon projet. Et puis je vais détailler les méthodes et les algorithmes utilisées, la spécification de la base de données. Enfin ce sera la réalisation de ce projet de chaque étape, je vais aussi parler les difficultés rencontrées.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Présentation du projet %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Présentation du projet}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Contexte %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Contexte}
+Géovélo est un site qui permet de calculer des itinéraires adaptés au réseau cyclable. Nous pouvons choisir le départ et la destination. Entre les deux points Géovélo nous fournit des itinéraires en tenant compte de différents critères. L'utilisateur peut choisir un itinéraire selon ses préférences de distance et de sécurité. Géovélo est une première en France. L'interface cartographique est basée sur l'API Google. Pour l'instant, il n'est disponible que pour la ville de Tours. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Description de l'existant %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Description de l'existant}
+Pour l'instant, le site Géovélo fonctionne bien pour trouver l'itinéraire en fonction du point de départ et un point de destination en considérant deux critères (distance et sécurité). Il utilise une version multi-critère de \textsc{Dijkstra algorithm} pour calculer l'itinéraire. 
+
+\begin{figure}[!ht]
+\label{fig:Le site Géovélo}
+\centering
+\includegraphics[scale=0.4]{images/Site.png}
+\caption{Le site Géovélo}
+\end{figure}
+
+L'image ci-dessus est triée du site web Géovélo actuel. Sur ce site, les fonctionnalités suivantes sont possibles :\\
+
+\textbf{Sélection d'un itinéraire}
+
+Pour saisir un itinéraire, il existe 3 méthodes :
+\begin{itemize}
+\item Saisir une adresse de départ ou d'arrivée puis cliquer sur la loupe ; 
+\item Déplacer les curseurs de départ et d'arrivée directement sur la carte  à l'aide de la souris ; 
+\item Utiliser le clic droit de la souris sur la carte.\\
+\end{itemize}
+
+\textbf{Sélection d'une préférence} 
+
+Permet de choisir un itinéraire selon ses préférences, de distance et de sécurité.\\
+
+\textbf{Affichage d'informations géographiques}
+
+\begin{itemize}
+\item Couverture Géovélo : Afficher un cadre qui permet de visualiser la zone géographique couverte par Géovélo ; 
+\item Loueur/réparateur/vente : Afficher l'ensemble des professionnels du vélo ;
+\item Lieux universitaires :  Afficher les principaux lieux universitaires sur l'agglomération. On peut cliquer sur chaque point d'intérêt pour obtenir des informations supplémentaires ;
+\item Loire à vélo : Afficher le tracé de la Loire à vélo.\\
+ 
+ \end{itemize}
+
+\textbf{Affichage des détails de l'itinéraire}
+
+Après avoir saisi le départ et la destination, Géovélo nous donne la solution avec la distance et le temps estimé. Nous pouvons cliquer sur la feuille de route pour obtenir des informations détaillées. Nous pouvons cliquer sur "lien de cette page" pour obtenir un lien vers un itinéraire de manière à pouvoir le partager par mail ou autre.
+
+\begin{figure}[!ht]
+\label{fig:Le diagramme de cas d'utilisation de Géovélo}
+\centering
+\includegraphics[scale=0.5]{images/usecase}
+\caption{Le diagramme de cas d'utilisation de Géovélo}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Objectifs du projet %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Objectifs du projet}
+Pour les objectifs de mon projet de fin d'étude, il contient deux missions principalement :\\
+\begin{itemize}
+\item \textbf{Mettre en place un nouvel algorithme BCA*}
+
+L'algorithme de ce projet est développé en utilisant le plus court chemin (une version multi-critère de l'algorithme de Dijkstra) \cite{0}. Évidement cet algorithme fonctionne bien mais il perd beaucoup de temps du calcul.
+
+Pour l'améliorer mon encadrant propose un nouveau algorithme: \textsc{Best Compomise Solution A*} (BCA* - une généralisation d'A* pour la cherche de solutions de compromis dans des problème d'optimisation multi-objectifs) \cite{1}. C'est un algorithme qui est spécialement con\c{c}u pour la recherche de solutions de compromis. L'intérêt est que nous n'avons pas besoin de calculer tous les résultats, le mécanisme de \textsc{BCA*} permet d'enlever des points qui ne nous intéressent pas pour trouver une solution plus rapidement en réduisant l'espace de recherche.\\
+
+\item \textbf{Implémenter des nouveaux critères}
+
+Pour l'instant, le site Géovélo fonctionne bien en considérant seulement deux critères (distance et sécurité). L'objectif de ce projet est d'implémenter les nouveaux critères qui contiennent trois critères principaux (effort, sécurité, tourisme) :\\
+
+\textbf{Le critère d'effort} Il existe de nombreuses définitions de l'effort, l'idée à retenir est que nous cherchons à évaluer la difficulté d'un trajet. Nous pouvons prendre en compte plusieurs critères comme la pente, la distance, la météo... Il y a aussi tout l'aspect psychologique: la difficulté n'est pas la même suivant les personnes. Par exemple, si quelqu'un est motivé, il pourra surmonter plus facilement une côte. Il est important de prendre en compte l'effort car c'est un élément de l'information que nous le devons fournir à un cycliste. nous voulons favoriser ce mode de transport, il faut donc lui apporter de nombreux services. Connaître le parcours le plus simple ou "mesurer" la difficulté de son parcours est donc utile pour un cycliste.\\
+
+\textbf{Le critère de sécurité} Le critère de sécurité consiste à prendre en compte l'itinéraire en différents sécurités. Il permet utilisateur de choisir l'itinéraires conseillé pour le vélo.\\
+
+\textbf{Le critère de tourisme} Le critère de tourisme consiste à trouver un itinéraire. Dans cet itinéraire, L'ensemble de points contiennent le point de départ, les point d'intérêts tels que les musées, les jardins, les monuments... et le point de destination. Un touriste devra commencer par le point de départ jusqu'au point de destination en passant obligatoirement par tous les points d'intérêts sélectionnés.\\
+
+\end{itemize}
+Selon le temps restant, nous devrons aussi modifier l'interface du site Géovélo.\\ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Description des Besoins %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Description des Besoins}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Besoins fonctionnels %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Besoins fonctionnels}
+
+Nous avons identifié les besoins fonctionnels suivants. Ces besoins identifient le travail à réaliser dans le cadre du projet.\\
+		
+\begin{itemize}
+\item Besoin 1 : Mettre en place \textsc{BCA*} en C++ sous la forme d'un web service ; 
+			
+Il consiste à lire d'abord des sources et comprendre la fonctionnalité d'algorithme existant, et puis implémenter \textsc{BCA*} pour deux critères (distance et sécurité), enfin tester la fonctionnalité et la compatibilité ;
+
+\textsc{BCA*} est une méthode multi-objective. Cet algorithme prend en paramètre les préférences de l'utilisateur (poids sur chaque critère), après il retourne l'itinéraire le plus adapté aux préférences de l'utilisateur. Cet algorithme explore en priorité les labels les plus "prometteurs" et éliminent ceux qui ne sont pas intéressants.\\
+			
+\item Besoin 2 : Implémenter des nouveaux critères ;
+			
+Cette tâche consiste à modéliser de nouveaux critères (effort, sécurité, tourisme) en collaboration avec 3 étudiants du DA dont leur sujet porte sur l'effort, la sécurité et le tourisme :\\
+
+\textbf{Le critère d'effort} 
+
+Nous pouvons voir la figure ci-dessous fournie par Simon Laporte (un étudiant du DA), le critère d'effort contient beaucoup de paramètres que nous devons considérer, cette tâche sera divisée en deux parties. Une partie pour Simon, il devra modéliser ce critère et essayer de résumer d'une formule permettant de considérer tous les paramètres. Et pour moi, je devrai implémenter cette formule et afficher la valeur d'effort calculé par cette formule. Nous nous répéterons jusqu'à ce que nous trouverons la formule optimale.\\
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Sujet} & \textbf{Thèmes} & \textbf{Critères} & \textbf{Sous-critères} \\ \hline
+\multicolumn{ 1}{|c|}{Efforts} & \multicolumn{ 1}{c|}{Tâche} & \multicolumn{ 1}{c|}{Motif} & Domicile-Travail \\ \cline{ 4- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & \multicolumn{ 1}{c|}{} & Loisir \\ \cline{ 4- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & \multicolumn{ 1}{c|}{} & Sport \\ \cline{ 3- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & Objectifs & Vitesse \\ \cline{ 3- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & Distance &  \\ \cline{ 3- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & Dénivelé &  \\ \cline{ 2- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{Environnement} & \multicolumn{ 1}{c|}{Climat} & Température \\ \cline{ 4- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & \multicolumn{ 1}{c|}{} & Hygrométrie \\ \cline{ 4- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & \multicolumn{ 1}{c|}{} & Vent \\ \cline{ 3- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & Revêtement &  \\ \cline{ 3- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & Intersections & Nombre \\ \cline{ 3- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & \multicolumn{ 1}{c|}{Matériel} & Poids \\ \cline{ 4- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & \multicolumn{ 1}{c|}{} & Roues \\ \cline{ 3- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & Participants &  \\ \cline{ 2- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{Individus} & \multicolumn{ 1}{c|}{Physique} & Age \\ \cline{ 4- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & \multicolumn{ 1}{c|}{} & Sexe \\ \cline{ 4- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & \multicolumn{ 1}{c|}{} & Aptitudes \\ \cline{ 3- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & \multicolumn{ 1}{c|}{Psychologique} & Difficulté perçue \\ \cline{ 4- 4}
+\multicolumn{ 1}{|c|}{} & \multicolumn{ 1}{c|}{} & \multicolumn{ 1}{c|}{} & Effort consenti \\ \hline
+\end{tabular}
+\end{center}
+\label{}
+\caption{Le composant de l'effort}
+\end{table}
+
+\textbf{Le critère de sécurité} 
+
+Le site Géovélo existe déjà le critère de sécurité, il suffit de récupérer d'abord les données améliorées par l'étudiant du DA, et puis nous devrons mettre à jour la base de données.\\
+
+Quand nous allons finir implémenter des nouveaux critères. Nous pourrons utiliser \textsc{BCA*} pour tester la fonctionnalité et la compatibilité.\\
+		
+\item Besoin 3 : Modifier l'interface du site web. 
+			
+Nous allons implémenter un nouvel algorithme et ajouter les nouveaux critères pour le site Géovélo, donc il failliras aussi utiliser le langage PHP/XAJAX/CSS pour modifier la zone de vos préférences. Le modèle est comme la figure ci-dessous :
+
+\begin{figure}[!ht]
+\label{fig:Le modèle de vos préférencea}
+\centering
+\includegraphics[width=10cm]{Images/preferences.pdf}
+\caption{Le modèle de vos préférencea}
+\end{figure}
+
+%\begin{figure}[!ht]
+%\label{fig:Le modèle de vos préférence}
+%\centering
+%\input{Schemas/preference.tex}
+%\caption{Le modèle de vos préférence}
+%\end{figure}
+
+Parce que nous utilisons nouvel algorithme pour calculer l'itinéraire, donc il faut modifier un peu sur le site Géovélo. Nous devrons d'abord ajouter notre nouveau critère pour la zone de vos préférences. Ensuite le modèle de sélection n'est pas très évident pour l'utilisateur, mon encadrant propose une idée en utilisant Slider à la place.
+
+%contient trois critères principaux (distance, sécurité, effort). De plus chaque critère a dix poids, nous pouvons choisir un poids pour chaque critère. Si nous choisirons le dixième poids pour le critère de distance, la couleur de point rond va devenir rouge, des points ronds d'autres critères vont disparaître. Ca signifie que nous considérons que le critère de distance. Et si nous choisirons le premier poids pour le critère de distance et le critère de sécurité. Ca signifie que nous n'allons pas considérer les deux critères.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Besoins non fonctionnels %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Besoins non fonctionnels}
+
+\begin{itemize}
+\item Besoin 4 : En terme de fiabilité, le site Géovélo devra être stable et devra supporter une charge d'environ 5000 visiteurs/mois;
+\item Besoin 5 : La documentation d'installation et de configuration doit être rédigée ;
+\item Besoin 6 : Les commentaires du code source doivent être lisibles et compréhensibles ;
+\item Besoin 7 : Le temps de calcul d'un itinéraire doit être inférieur à 3 secondes ;
+\item Besoin 8 : L'interface du site Géovélo doit être conviviale et ergonomique.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Environnement du projet %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Environnement du projet}
+Ce PFE est effectué sous le système d'exploitation Ubuntu8.
+		
+Le codage doit être réalisé en C++. Sous Ubuntu8, nous installons l'outil codeblocks comme environnement de développement et les paquets concernant la librairie de communication XMLRPC.
+		
+Nous utilisons Postgresql comme SGBD et son module géographique Postgis. Nous utilisons l'outil pgadmin3 pour gérer la base de données et l'outil qgis pour visualiser et traiter les données géographiques.
+		
+Nous utilisons le serveur apache2 et son module PHP5 comme serveur web.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Technologies utilisées %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Technologies utilisées}
+Pendant mon projet de fin d'étude, il est nécessaire d'utiliser différents langages et outils. Pour la partie de calcul d'itinéraires, nous utilisons C++ et LEDA. Pour la partie de site Géovélo, nous utilisons HTML, CSS, Javascript, PHP, Xajax, API de Google Maps. Pour la partie de base de données, nous utilisons PostgreSQL et PostGIS. Je vais les diviser en quatre parties (Client, Serveur, XMLRPC, Base de données) pour expliquer leur utilisations et fonctionnalités.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Client %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Client}
+
+\textbf{AJAX} Une technique de développement web. Il permet de créer des applications web interactives. Le plus gros avantage est qu'avec l'utilisation de AJAX, il est possible de maintenir des données sans besoin de rafraîchir la page toute entière. Les applications web peuvent rendre une réponse à l'utilisateur plus rapidement et éviter d'envoyer les informations qui n'ont pas besoin d'être modifiées.\\  
+
+\textbf{XAJAX} Un framework open source utilisant le langage PHP, il permet d'utiliser le langage PHP pour développer des fonctionnalités AJAX sans connaître le langage JavaScript.\\ 
+
+\textbf{API Google Maps} Nous savons que Google Maps est un outil utilisé pour suivre l'emplacement actuel, les conditions en temps réel du trafic, mais il offre aussi un outil de recherche, et l'API Google Maps permet d'intégrer Google Maps dans son propre site en utilisant JavaScript. Ensuite il est possible de développer avec JavaScript pour manipuler la carte.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Serveur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Serveur}
+
+\textbf{LEDA} Une librairie C++ qui offre une grande variété d'algorithmes et de structures adaptés aux graphes et aux calculs géométriques. Dans mon projet il est nécessaire de calculer un itinéraire sur la carte, donc c'est plus facile de calculer l'itinéraire en utilisant cette librairie existante.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : XMLRPC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{XML-RPC}
+
+%\begin{figure}[!ht]
+%\label{fig:XML-RPC}
+%\centering
+%\input{Schemas/XML-RPC.tex}
+%\includegraphics[scale=0.6]{images/xmlrpc.jpg}
+%\caption{XML-RPC}
+%\end{figure}
+
+Un protocole RPC (Remote procedure call), un ensemble de spécifications qui permettent à des applications tournant dans des environnements différents de communiquer facile. Cette technique qui permet à deux machines de communiquer ou d'échanger des données au format XML. Il est utilisé pour échanger des informations entre des pages du site et le serveur de calcul d'itinéraire. Nous pouvons l'utiliser pour transmettre des structures de données complexes. Il existe huit types de données: array, base64, boolean, date/time, double. integer, string, nil.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Base de données %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Base de données}
+
+\textbf{PostgreSQL} Un système de gestion de base de données relationnelles. Actuellement, il est un des systèmes les plus puissants, le plus riche en fonctionnalités et le plus complexe des bases de données du logiciel libre. Il fonctionne principalement sous le système UNIX (Linux, FreeBSD, Ubuntu...).\\
+		
+\textbf{PostGIS} Une extension qui ajoute la capacité de gestion des données spatiales sur le système PostgreSQL. Il offre des fonctionnalités comme les objets spatiaux, l'indexation spatial, les fonctions de manipulation spatiales et les opérateurs. En résumé il permet de manipuler des données géographiques facilement.	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Méthodes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Méthodes}
+Pour calculer l'itinéraire, nous devons utiliser plusieurs méthodes et algorithmes. Dans ce chapitre, nous allons détailler les méthodes et algorithmes que nous utilisons.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Présentation du problème %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Présentation du problème}
+Il existe déjà beaucoup d'études concernant des problèmes de plus court chemin avec l'objectif unique en utilisant \textsc{Dijkstra Algorithme} \cite{1}. L'objectif est de trouver un chemin en minimisant la somme du coût de ses arcs entre le départ et la destination. Mais l'optimisation d'un objectif unique n'est pas suffisante, car il existe plusieurs objectifs que nous devons considérer dans le problème véritable.
+
+Par exemple, l'objectif de site Géovélo ne consiste pas seulement à trouver un itinéraire plus court, il faut considérer plusieurs critères (distance, sécurité, effort, tourisme) en même temps. Les différents critères sont toujours indépendants sur chaque itinéraire, il n'existe pas de relation entre eux, donc nous ne pouvons pas considérer qu'une critère. Géovélo permet de fournir la solution bien équilibrée en considérant le poids de chaque critère que l'utilisateur choisit.
+
+Pour l'instant, nous pouvons utiliser le calcul d'itinéraire bi-critère existant qui se base sur \textsc{Dijkstra algorithm} pour calculer un itinéraire intermédiaire entre deux points adjacents. Cet algorithme est différent de l'algorithme classique \textsc{Dijkstra Algorithme}. Nous obtenons qu'une solution concernant le plus court chemin en utilisant l'algorithme classique. Mais cet algorithme existant nous fournit plusieurs solutions intermédiaires entre deux points adjacents. Chaque solution est bien représentée par un couple {distance, insécurité} correspondant aux deux critères. Nous pouvons voir l'exemple suivant : 
+
+\begin{figure}[!ht]
+\label{fig:Solutions entre les critères}
+\centering
+\input{Schemas/bicritere}
+\caption{Solutions entre les critères}
+\end{figure}
+
+\newpage
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Solution} & \textbf{Distance} & \textbf{Insécurité} \\ \hline
+1 & 400 & 50 \\ \hline
+2 & 300 & 100 \\ \hline
+3 & 250 & 150 \\ \hline
+4 & 200 & 200 \\ \hline
+5 & 100 & 250 \\ \hline
+\end{tabular}
+\label{Exemple de bi-critère}
+\caption{Exemple de bi-critère}
+\end{center}
+\end{table}
+
+Selon la table ci-dessus, nous ne pouvons pas déterminer laquelle est la meilleure. Ca dépend la sélection de l'utilisateur. Ce type de problème est appelé \textsc{Multiobjective problem} \cite{2}. 
+
+Pour calculer un itinéraire entre le départ et la destination selon différents critères, la mécanisme de l'algorithme existant est de trouver toutes les solutions au premier, et puis parmi les résultats il retient quelques itinéraires satisfaisants les besoins de l'utilisateur. Evidement, cet algorithme fonctionne bien, mais toutes les solutions de calcul pourra prendre beaucoup de temps, de plus elles ne sont pas forcément utile si l'utilisateur a besoin d'obtenir qu'une solution de compromis.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Méthodes utilisées %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Méthodes utilisées}
+Dans cette partie, je vais détailler les différentes méthodes utilisées comprenant \textsc{Dijkstra Algorithme}, la solution de l'optimisation multi-objectif.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Algorithme Dijkstra %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Algorithme de Dijkstra}
+\textsc{Dijkstra Algorithme} a été publie par l'informaticien néerlandais Edsger Dijkstra en 1959. Il sert à résoudre le problème du plus court chemin. Cet algorithme permet de trouver une chaine de longueur minimale entre deux sommets d'un graphe oriente ou non. Dans ce projet, nous pouvons utiliser cet algorithme pour trouver le plus court chemin de chaque critère.\\
+
+\textbf{Principe de l'algorithme de Dijkstra}
+
+Nous considérons un graphe $G = [x, U]$ qui contient éventuellement des circuits et où toutes les longueurs des arcs sont positives : $\forall u \in U, l(u) \geq 0$ ; 
+
+Nous cherchons le plus court chemin du sommet 1 à tous les autres ; 
+
+Nous notons $\Pi(i)$ : un potentiel associé au sommet i, qui représente la longueur du plus court chemin de 1 à i actuelle ;
+
+Nous notons $\bar\Pi(i)$ : le potentiel final associé à i, donc la longueur du plus court chemin de 1 à i ;
+
+Nous notons $S$ : l'ensemble du sommets pour les quels nous connaissons la potentiel final.\\
+
+\newpage
+
+\begin{algorithm}[!ht]
+\caption{\textsc{Dijkstra}}
+\label{alg:dijkstra}
+\begin{enumerate}
+\item $\bar\Pi(1) = 0$
+
+	  $\forall u / (1, j) \in U, \Pi(j) = l(1, j)$
+
+	  $\forall u / (1, j) \notin U, \Pi(j) = \infty$ 
+	  
+	  $S = {1}$
+\item \underline{TQ} $S \ne X$ \underline{Faire}
+
+	  \hspace{0.6cm} Sélectionner $k \in X \backslash S / \mathop{\min}\limits_{i \in X\backslash S}\Pi(i)$
+	  
+	  \hspace{0.6cm} $\bar\Pi(k) = \Pi(k)$
+	  
+	  \hspace{0.6cm} \underline{Pour} tout $l \in X \backslash S, (k,l) \in U$ \underline{Faire}
+	  
+	  \hspace{1.4cm} $\Pi(l) = \min(\pi(l), \Pi(k) + l(k,l))$
+	  
+	  \hspace{0.6cm} \underline{FinPour}
+	  
+	  \hspace{0.6cm} $S \leftarrow S \cup{k}$
+	  
+	  \underline{FTQ}
+	
+\end{enumerate}
+\end{algorithm}
+
+\textbf{Exemple de l'algorithme de Dijkstra}
+\begin{figure}[!ht]
+\label{fig:Exemple de l'algorithme de Dijkstra}
+\centering
+\input{Schemas/dijkstra1}
+\caption{Exemple de l'algorithme de Dijkstra}
+\end{figure}
+
+Nous pouvons utiliser la table ci-dessous pour montrer le résultat du calcul.
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+ & \hspace{0.2cm}1\hspace{0.2cm} & \hspace{0.2cm}2\hspace{0.2cm} & \hspace{0.2cm}3\hspace{0.2cm} & 4 & 5 & 6 \\ \hline
+$\Pi(0)$ & \textcolor{red}{0} & 2 & 4 & $+\infty$ & $+\infty$ & $+\infty$ \\ \hline
+$\Pi(1)$ &  & \textcolor{red}{2} & 3 & 6 & 4 & $+\infty$ \\ \hline
+$\Pi(2)$ &  &  & \textcolor{red}{3} & 6 & 4 & $+\infty$ \\ \hline
+$\Pi(3)$ &  &  &  & 6 & \textcolor{red}{4} & 6 \\ \hline
+$\Pi(4)$ &  &  &  & \textcolor{red}{6} &  & 6 \\ \hline
+$\Pi(5)$ &  &  &  &  &  & \textcolor{red}{6} \\ \hline
+\end{tabular}
+\label{Le résultat de calcul}
+\caption{Le résultat de calcul}
+\end{center}
+\end{table}
+
+\newpage
+
+\begin{figure}[!ht]
+\label{fig:Résultat d'algorithme de Dijkstra}
+\centering
+\input{Schemas/dijkstra2}
+\caption{Résultat d'algorithme de Dijkstra}
+\end{figure}
+
+Nous pouvons trouver les plus courts chemins entre le sommet de départ (sommet 0) et des autres sommets.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Algorithme BCA* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Algorithme de BCA*}
+Pour résoudre le problème de l'algorithme existant, mon encadrant propose un nouvel algorithme \textsc{BCA*} qui permet de rechercher un meilleur compromis. Cet algorithme se base sur une énumération implicite de solutions non-dominées, a la manière de \textsc{MOA*} \cite{3}, en se focalisant, durant la recherche, sur l'obtention d'un compromis adapté aux préférences de l'utilisateur.\\
+
+\textbf{Principe de l'algorithme de BCA*}
+
+\textbf{Exemple de l'algorithme de BCA*} 
+
+\begin{figure}[!ht]
+\label{fig:Un graphe à traiter}
+\centering
+\includegraphics[width=10cm]{Schemas/traiter.pdf}
+\caption{Un graphe à traiter}
+\end{figure}
+
+\begin{figure}[!ht]
+\label{fig:Algorithme de BCA*}
+\centering
+\includegraphics[width=10cm]{Schemas/solution.pdf}
+\caption{Algorithme de BCA*}
+\end{figure}
+
+Nous pouvons voir la figure ci-dessus, c'est un graphe contenant 4 sommets. Le noeud S est un sommet du départ et le noeud T est un sommet de la destination. Cet exemple considère que deux critères (distance et sécurité). 
+
+Nous pouvons d'abord utiliser \textsc{Dijkstra  algorithm} qui permet d'obtenir le plus court chemin en considérant respectivement le critère de la distance et le critère de la sécurité.
+
+%Avant de commencer à implémenter l'algorithme BCA*, il y a trois étapes à faire.\\
+
+%\textbf{Première étape:} Il faut calculer Heristique H$_i$(v). On utilise un tableau (L'étiquette verte sur la figure ci-dessus) pour stocker deux valeurs, cela signifie que combien ça coute optimal à atteindre le noeud T pour chaque critère.\\	
+
+%\textbf{Deuxième étape}: Initialiser des paramètres nécessaires suivants, pour l'exemple ci-dessus, les valeurs sont suivantes:\\
+
+%\begin{center}
+%\begin{tabular}{|c|c|c|c|c|}
+%\hline
+%& $\alpha_i$ & $\beta_i$ & $\delta_i$ & w$_i$\\  
+%\hline
+%critère 1 & 2 & 6 & 1 & 1/4\\
+%\hline
+%critère 2 & 2 & 6 & 1 & 1/4\\
+%\hline 
+%\end{tabular}
+%\end{center}
+
+%\vspace{0.5cm}
+%	
+%\textbf{$\alpha_i$}: un tableau consiste à stocker des valeurs min des objectif ;
+
+%\textbf{$\beta_i$}: un tableau consiste à stocker des valeurs max des objectif ;
+
+%\textbf{$\delta_i$}: un tableau consiste à stocker des poids attribués aux objectifs ;
+
+%w$_i$: un tableau consiste à stocker des poids normés des objectifs, on peut utiliser l'équation w=delta/(beta-alpha) pour le calculer.\\
+
+%\textbf{Troisième étape:} Il faut calculer la distance de Tchebycheff.\\ 
+%			
+%\begin{figure}[!ht]
+%\label{fig:La distance de Tchebycheff}
+%\centering
+%\includegraphics[scale=0.6]{images/Tchebycheff.png}
+%\caption{La distance de Tchebycheff}
+%\end{figure}
+%			
+%On utilise l'équation suivante pour calculer $\lambda_0$:\\
+%			
+%$\lambda_0$ = min \{ s(p1),  s(p2) \}\\
+%			 
+%Pour cet exemple $\lambda_0$ = min \{ 4,  4 \} = 4\\
+
+%Pour démarrer l'algorithme BCA*, il faut utiliser deux liste:\\
+
+%Une liste \textbf{g\_labels}: stocker la priorité qui nous permet de savoir dans quel ordre explorer les noeuds. Il y a 4 valeurs dans la liste g\_labels, ils sont le nom de noeud, la valeur de critère distance, la valeur de critère sécurité et la priorité.
+
+%Une liste \textbf{labels(x)}: stocker les valeurs de chaque noeud.\\
+
+%\newpage
+
+%\begin{figure}[!ht]
+%\label{fig:L'algorithme BCA*(1)}
+%\centering
+%\input{Schemas/bcaetape1.tex}
+%\caption{L'algorithme BCA*(1)}
+%\end{figure}
+
+%1: On commence à explorer le noeud S, avec l'aide la figure ci-dessus, on sait que le noeud S a deux noeuds adjacents A et B, alors on calcule d'abord des valeur pour A et B en ajoutant le poids d'arc, et puis on ajoute le heuristique H$_i$(v) pour chaque noeud. Pour l'instant, on peut voir la figure ci-dessous, le noeud A devient (2,5) et B devient (5,2). Pour A et B, on calcule la distance de Tchebycheff. Enfin, on peut mettre à jour deux liste. En ce moment:\\
+
+%g\_labels=\{(A,1,3,3), (B,3,1,3)\}
+
+%labels(A)=\{(A,1,3)\}
+
+%labels(B)=\{(B,3,1)\}
+
+%\begin{figure}[!ht]
+%\label{fig:L'algorithme BCA*(2)}
+%\centering
+%\includegraphics[scale=0.6]{images/bca2.png}
+%\caption{L'algorithme BCA*(2)}
+%\end{figure}
+
+%Et puis, on continue parcourir tous les noeud jusqu'à la liste  g\_labels est vide, on pourra trouver qu'un meilleur compromis entre S et T dans la liste labels(T).\\
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Test d'intégration %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Test d'intégration de site Géovélo}
+Quand on a fini de modifier la zone de vos préférences, il faut tester son intégration. Ca signifie que les utilisateur ne possèdent pas tous le même navigateur, certains possèdent Internet Explorer, d'autres Firefox. Le problème n'est pas non plus la multitude de navigateurs, mais également les différents versions de chacun. Il est souvent fastidieux de tester un site sur les différents navigateurs existants. Selon la recherche, on a décidé d'utiliser des outils suivants:\\
+
+\begin{itemize}
+\item \textbf{BrowserShots} (http://browsershots.org)
+
+C'est un service en ligne open-source et gratuit, ce site permet de tester automatiquement votre site Internet sur un peu plus de 50 navigateurs.\\
+
+\item \textbf{BrowserLab} (http://browserlab.adobe.com)
+
+C'est une application développée par Adobe produisant des rendus selon différents navigateurs web pour un site donné. En comparant avec BrowserShots, pour l'instant elle est compatible seulement avec Internet Explorer, Firefox, Chrome et Safari. Mais BrowserLab permet d'analyser les différences entre deux navigateurs. Une petite subtilité permet de superposer les fenêtres entre 2 navigateurs.\\
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% bibliography %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{99}
+
+\bibitem[Dijkstra(1959)]{0}
+E.W. Dijkstra. A note on two problems in connection with graphs>>. Numerische Mathematik, (1): 269-271, 1959.
+
+\bibitem[Futtersack and Perny(2000)]{1}
+M. Futtersack, P. Perny. BCA*, une généralisation d'A* pour la recherche de solutions de compromis dans des problèmes d'optimisation multi-objectifs. In Actes de la conférence RFIA'2000, vol. 3, pages 377-386, 2000.
+
+\bibitem[Wikipedia]{2}
+Wikipedia, Multiobjective optimization, http://en.wikipedia.org/wiki/Multiobjective\_optimization.
+
+\bibitem[Stewart and White(1991)]{3} 
+B. S. Stewart et C.C. White, Multiobjective A*, Journal of the Association for Computing Machinery , Vol 38, pp. 775-814, 1991.
+
+\bibitem[Sauvanet and Néron]{4}
+G. Sauvanet, E. Néron. <<Search for the best compromise solution on Multiobjective shortest path problem>>
+
+\bibitem[Zhang(2009)]{5}
+Juan Zhang. <<Calcul d'itinéraires touristiques pour vélo>>, Rapport de fin d'étude, École Polytechnique de l'Université de Tours, 64, avenue Jean Portalis, 37200 Tours, d2009.
+\end{thebibliography}
+
+			
+			 
+						
+
+
+\end{document}
+
