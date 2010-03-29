@@ -19,7 +19,6 @@
 	captionpos=b,
 	breaklines=true,
 	basicstyle=\ttfamily\footnotesize,
-	language=C,
 	tabsize=2,
 	keywordstyle=\color{navy}\bfseries,
 	commentstyle=\color{red}\textit,
@@ -57,7 +56,7 @@
 
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Remerciements %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Remerciements %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter*{Remerciements}
 Je souhaite tout d'abord remercier beaucoup Gaël Sauvanet pour m'avoir donné toutes les informations nécessaires et tous les conseils. Il m'a aidé tout au long du projet de fin d'étude. Son point de vue m'a été d'une grande utilité pour la compréhension du fonctionnement du système existant. Il m'a expliqué clairement et m'a guidé pour les réflexions concernant les algorithmes.
 	
@@ -65,7 +64,7 @@ Un merci à Emmanuel Néron pour ses instructions et ses connaissances. Il m'a pro
 	
 Enfin, merci à tous ceux qui m'ont aidé durant la période du projet de fin d'étude.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Introduction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Introduction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter*{Introduction}
 Lors de la cinquième année du cycle d'ingénieur de l'École Polytechnique de l'Université de Tours Département Informatique. Nous devons effectuer un Projet de Fin d'Étude(PFE) du 10/2009 au 5/2010. Le but est de familiariser les étudiants avec les compétences acquises en cours et d'en acquérir de nouvelles.
 	
@@ -73,14 +72,14 @@ Le sujet du projet de fin d'étude est "Nouveaux critères pour du calcul d'itinér
  	
 Dans ce rapport, je vais d'abord présenter mon projet. Et puis je vais détailler les méthodes et les algorithmes utilisées, la spécification de la base de données. Enfin ce sera la réalisation de ce projet de chaque étape, je vais aussi parler les difficultés rencontrées.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Présentation du projet %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Présentation du projet %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Présentation du projet}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Contexte %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Contexte %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Contexte}
 Géovélo est un site qui permet de calculer des itinéraires adaptés au réseau cyclable. Nous pouvons choisir le départ et la destination. Entre les deux points Géovélo nous fournit des itinéraires en tenant compte de différents critères. L'utilisateur peut choisir un itinéraire selon ses préférences de distance et de sécurité. Géovélo est une première en France. L'interface cartographique est basée sur l'API Google. Pour l'instant, il n'est disponible que pour la ville de Tours. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Description de l'existant %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Description de l'existant %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Description de l'existant}
 Pour l'instant, le site Géovélo fonctionne bien pour trouver l'itinéraire en fonction du point de départ et un point de destination en considérant deux critères (distance et sécurité). Il utilise une version multi-critère de \textsc{Dijkstra algorithm} pour calculer l'itinéraire. 
 
@@ -113,8 +112,8 @@ Permet de choisir un itinéraire selon ses préférences, de distance et de sécurit
 \item Loueur/réparateur/vente : Afficher l'ensemble des professionnels du vélo ;
 \item Lieux universitaires :  Afficher les principaux lieux universitaires sur l'agglomération. On peut cliquer sur chaque point d'intérêt pour obtenir des informations supplémentaires ;
 \item Loire à vélo : Afficher le tracé de la Loire à vélo.\\
- 
- \end{itemize}
+
+\end{itemize}
 
 \textbf{Affichage des détails de l'itinéraire}
 
@@ -128,7 +127,7 @@ Après avoir saisi le départ et la destination, Géovélo nous donne la solution av
 \end{figure}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Objectifs du projet %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Objectifs du projet %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Objectifs du projet}
 Pour les objectifs de mon projet de fin d'étude, il contient deux missions principalement :\\
 \begin{itemize}
@@ -149,12 +148,12 @@ Pour l'instant, le site Géovélo fonctionne bien en considérant seulement deux cr
 \textbf{Le critère de tourisme} Le critère de tourisme consiste à trouver un itinéraire. Dans cet itinéraire, L'ensemble de points contiennent le point de départ, les point d'intérêts tels que les musées, les jardins, les monuments... et le point de destination. Un touriste devra commencer par le point de départ jusqu'au point de destination en passant obligatoirement par tous les points d'intérêts sélectionnés.\\
 
 \end{itemize}
-Selon le temps restant, nous devrons aussi modifier l'interface du site Géovélo.\\ 
+Selon le temps restant, nous devrons aussi modifier l'interface du site Géovélo. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Description des Besoins %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Description des Besoins %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Description des Besoins}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Besoins fonctionnels %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Besoins fonctionnels %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Besoins fonctionnels}
 
 Nous avons identifié les besoins fonctionnels suivants. Ces besoins identifient le travail à réaliser dans le cadre du projet.\\
@@ -233,7 +232,7 @@ Parce que nous utilisons nouvel algorithme pour calculer l'itinéraire, donc il f
 %contient trois critères principaux (distance, sécurité, effort). De plus chaque critère a dix poids, nous pouvons choisir un poids pour chaque critère. Si nous choisirons le dixième poids pour le critère de distance, la couleur de point rond va devenir rouge, des points ronds d'autres critères vont disparaître. Ca signifie que nous considérons que le critère de distance. Et si nous choisirons le premier poids pour le critère de distance et le critère de sécurité. Ca signifie que nous n'allons pas considérer les deux critères.
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Besoins non fonctionnels %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Besoins non fonctionnels %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Besoins non fonctionnels}
 
 \begin{itemize}
@@ -244,7 +243,7 @@ Parce que nous utilisons nouvel algorithme pour calculer l'itinéraire, donc il f
 \item Besoin 8 : L'interface du site Géovélo doit être conviviale et ergonomique.
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Environnement du projet %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Environnement du projet %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Environnement du projet}
 Ce PFE est effectué sous le système d'exploitation Ubuntu8.
 		
@@ -254,12 +253,12 @@ Nous utilisons Postgresql comme SGBD et son module géographique Postgis. Nous ut
 		
 Nous utilisons le serveur apache2 et son module PHP5 comme serveur web.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Technologies utilisées %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Technologies utilisées %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Technologies utilisées}
 Pendant mon projet de fin d'étude, il est nécessaire d'utiliser différents langages et outils. Pour la partie de calcul d'itinéraires, nous utilisons C++ et LEDA. Pour la partie de site Géovélo, nous utilisons HTML, CSS, Javascript, PHP, Xajax, API de Google Maps. Pour la partie de base de données, nous utilisons PostgreSQL et PostGIS. Je vais les diviser en quatre parties (Client, Serveur, XMLRPC, Base de données) pour expliquer leur utilisations et fonctionnalités.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Client %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Client}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Client %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Client}
 
 \textbf{AJAX} Une technique de développement web. Il permet de créer des applications web interactives. Le plus gros avantage est qu'avec l'utilisation de AJAX, il est possible de maintenir des données sans besoin de rafraîchir la page toute entière. Les applications web peuvent rendre une réponse à l'utilisateur plus rapidement et éviter d'envoyer les informations qui n'ont pas besoin d'être modifiées.\\  
 
@@ -267,13 +266,13 @@ Pendant mon projet de fin d'étude, il est nécessaire d'utiliser différents langa
 
 \textbf{API Google Maps} Nous savons que Google Maps est un outil utilisé pour suivre l'emplacement actuel, les conditions en temps réel du trafic, mais il offre aussi un outil de recherche, et l'API Google Maps permet d'intégrer Google Maps dans son propre site en utilisant JavaScript. Ensuite il est possible de développer avec JavaScript pour manipuler la carte.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Serveur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Serveur}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Serveur %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Serveur}
 
 \textbf{LEDA} Une librairie C++ qui offre une grande variété d'algorithmes et de structures adaptés aux graphes et aux calculs géométriques. Dans mon projet il est nécessaire de calculer un itinéraire sur la carte, donc c'est plus facile de calculer l'itinéraire en utilisant cette librairie existante.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : XMLRPC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{XML-RPC}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : XMLRPC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{XML-RPC}
 
 %\begin{figure}[!ht]
 %\label{fig:XML-RPC}
@@ -285,24 +284,24 @@ Pendant mon projet de fin d'étude, il est nécessaire d'utiliser différents langa
 
 Un protocole RPC (Remote procedure call), un ensemble de spécifications qui permettent à des applications tournant dans des environnements différents de communiquer facile. Cette technique qui permet à deux machines de communiquer ou d'échanger des données au format XML. Il est utilisé pour échanger des informations entre des pages du site et le serveur de calcul d'itinéraire. Nous pouvons l'utiliser pour transmettre des structures de données complexes. Il existe huit types de données: array, base64, boolean, date/time, double. integer, string, nil.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Base de données %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Base de données}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Base de données %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Base de données}
 
 \textbf{PostgreSQL} Un système de gestion de base de données relationnelles. Actuellement, il est un des systèmes les plus puissants, le plus riche en fonctionnalités et le plus complexe des bases de données du logiciel libre. Il fonctionne principalement sous le système UNIX (Linux, FreeBSD, Ubuntu...).\\
 		
 \textbf{PostGIS} Une extension qui ajoute la capacité de gestion des données spatiales sur le système PostgreSQL. Il offre des fonctionnalités comme les objets spatiaux, l'indexation spatial, les fonctions de manipulation spatiales et les opérateurs. En résumé il permet de manipuler des données géographiques facilement.	
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Méthodes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Méthodes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Méthodes}
 Pour calculer l'itinéraire, nous devons utiliser plusieurs méthodes et algorithmes. Dans ce chapitre, nous allons détailler les méthodes et algorithmes que nous utilisons.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Présentation du problème %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Présentation du problème %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Présentation du problème}
-Il existe déjà beaucoup d'études concernant des problèmes de plus court chemin avec l'objectif unique en utilisant \textsc{Dijkstra Algorithme} \cite{1}. L'objectif est de trouver un chemin en minimisant la somme du coût de ses arcs entre le départ et la destination. Mais l'optimisation d'un objectif unique n'est pas suffisante, car il existe plusieurs objectifs que nous devons considérer dans le problème véritable.
+Il existe déjà beaucoup d'études concernant des problèmes de plus court chemin avec l'objectif unique en utilisant \textsc{Dijkstra Algorithme}. L'objectif est de trouver un chemin en minimisant la somme du coût de ses arcs entre le départ et la destination. Mais l'optimisation d'un objectif unique n'est pas suffisante, car il existe plusieurs objectifs que nous devons considérer dans le problème véritable.
 
-Par exemple, l'objectif de site Géovélo ne consiste pas seulement à trouver un itinéraire plus court, il faut considérer plusieurs critères (distance, sécurité, effort, tourisme) en même temps. Les différents critères sont toujours indépendants sur chaque itinéraire, il n'existe pas de relation entre eux, donc nous ne pouvons pas considérer qu'une critère. Géovélo permet de fournir la solution bien équilibrée en considérant le poids de chaque critère que l'utilisateur choisit.
+Par exemple, l'objectif de site Géovélo ne consiste pas seulement à trouver un itinéraire plus court, il faut considérer plusieurs critères (distance, sécurité, effort, tourisme) en même temps. Les différents critères sont toujours indépendants sur chaque itinéraire, il n'existe pas de relation entre eux, donc nous ne pouvons pas considérer qu'une critère. Géovélo permet de fournir la solution bien équilibrée en considérant le poids de chaque critère que l'utilisateur choisit. 
 
-Pour l'instant, nous pouvons utiliser le calcul d'itinéraire bi-critère existant qui se base sur \textsc{Dijkstra algorithm} pour calculer un itinéraire intermédiaire entre deux points adjacents. Cet algorithme est différent de l'algorithme classique \textsc{Dijkstra Algorithme}. Nous obtenons qu'une solution concernant le plus court chemin en utilisant l'algorithme classique. Mais cet algorithme existant nous fournit plusieurs solutions intermédiaires entre deux points adjacents. Chaque solution est bien représentée par un couple {distance, insécurité} correspondant aux deux critères. Nous pouvons voir l'exemple suivant : 
+Par exemple, nous pouvons considérer que deux critères (distance et sécurité) :\\
 
 \begin{figure}[!ht]
 \label{fig:Solutions entre les critères}
@@ -329,20 +328,21 @@ Pour l'instant, nous pouvons utiliser le calcul d'itinéraire bi-critère existant
 \end{center}
 \end{table}
 
-Selon la table ci-dessus, nous ne pouvons pas déterminer laquelle est la meilleure. Ca dépend la sélection de l'utilisateur. Ce type de problème est appelé \textsc{Multiobjective problem} \cite{2}. 
+Nous pouvons voir l'exemple ci-dessus, évidement nous ne pouvons pas déterminer laquelle est la meilleure. Ca dépend la sélection de l'utilisateur. Ce type de problème est appelé \textsc{Multiobjective problem} \cite{2}. 
+
+Pour l'instant, nous pouvons utiliser le calcul d'itinéraire bi-critère existant qui se base sur \textsc{Dijkstra algorithm} pour calculer un itinéraire intermédiaire entre deux points adjacents. Cet algorithme est différent de l'algorithme classique \textsc{Dijkstra Algorithme}. Nous obtenons qu'une solution concernant le plus court chemin en utilisant l'algorithme classique. Mais cet algorithme existant nous fournit plusieurs solutions intermédiaires entre deux points adjacents. Chaque solution est bien représentée par un couple {distance, insécurité} correspondant aux deux critères.
 
 Pour calculer un itinéraire entre le départ et la destination selon différents critères, la mécanisme de l'algorithme existant est de trouver toutes les solutions au premier, et puis parmi les résultats il retient quelques itinéraires satisfaisants les besoins de l'utilisateur. Evidement, cet algorithme fonctionne bien, mais toutes les solutions de calcul pourra prendre beaucoup de temps, de plus elles ne sont pas forcément utile si l'utilisateur a besoin d'obtenir qu'une solution de compromis.  
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Méthodes utilisées %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Méthodes utilisées}
-Dans cette partie, je vais détailler les différentes méthodes utilisées comprenant \textsc{Dijkstra Algorithme}, la solution de l'optimisation multi-objectif.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Méthodes utilisées %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Méthodes utilisées}
+Dans cette partie, je vais détailler les différentes méthodes utilisées comprenant \textsc{Dijkstra Algorithme}, \textsc{BCA*}, l'optimisation multi-objectif.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Algorithme Dijkstra %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Algorithme de Dijkstra}
-\textsc{Dijkstra Algorithme} a été publie par l'informaticien néerlandais Edsger Dijkstra en 1959. Il sert à résoudre le problème du plus court chemin. Cet algorithme permet de trouver une chaine de longueur minimale entre deux sommets d'un graphe oriente ou non. Dans ce projet, nous pouvons utiliser cet algorithme pour trouver le plus court chemin de chaque critère.\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Algorithme Dijkstra %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Algorithme de Dijkstra}
+\textsc{Dijkstra Algorithme} a été publie par l'informaticien néerlandais Edsger Dijkstra en 1959. Il sert à résoudre le problème du plus court chemin. Cet algorithme permet de trouver une chaine de longueur minimale entre deux sommets d'un graphe oriente ou non. Dans ce projet, nous pouvons utiliser cet algorithme pour trouver le plus court chemin de chaque critère.
 
-\textbf{Principe de l'algorithme de Dijkstra}
-
+\subsubsection{Principe de l'algorithme de Dijkstra}
 Nous considérons un graphe $G = [x, U]$ qui contient éventuellement des circuits et où toutes les longueurs des arcs sont positives : $\forall u \in U, l(u) \geq 0$ ; 
 
 Nous cherchons le plus court chemin du sommet 1 à tous les autres ; 
@@ -385,7 +385,7 @@ Nous notons $S$ : l'ensemble du sommets pour les quels nous connaissons la poten
 \end{enumerate}
 \end{algorithm}
 
-\textbf{Exemple de l'algorithme de Dijkstra}
+\subsubsection{Exemple de l'algorithme de Dijkstra}
 \begin{figure}[!ht]
 \label{fig:Exemple de l'algorithme de Dijkstra}
 \centering
@@ -423,25 +423,88 @@ $\Pi(5)$ &  &  &  &  &  & \textcolor{red}{6} \\ \hline
 
 Nous pouvons trouver les plus courts chemins entre le sommet de départ (sommet 0) et des autres sommets.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Algorithme BCA* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Algorithme de BCA*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Multi-objectif %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Optimisation multi-objectif}
+L'optimisation multi-objectif est une branche de l'optimisation combinatoire, elle est utilisée fréquemment dans nombreux secteurs de l'industrie concernés (Télécommunications, Transport, Environnement, Mécanique, Aéronautique, ...). Comme le suggère le nom, un problème d'optimisation multi-critère consiste à optimiser plusieurs fonctions objectif simultanément. C'est difficile de résumer des objectif en un objectif unique, car il existe des conflits entre ces objectif.
+
+En général, Les objectifs de l'optimisation sont contradictoires, c'est-à-dire que l'objectif est de trouver des bons compromis parmi toutes les solutions. Ces problèmes peuvent être NP-complets.
+
+Dans la partie suivante, je vais présenter la définition mathématique d'un problème d'optimisation multi-objectif.
+
+\subsubsection{Définition : Problème multi-objectif}
+Etant donné $X = (x_1, x_2, ..., x_n)$ est le vecteur des variables de décision. Il satisfait les contraintes ci-dessous :\\
+
+$g_i(X) \geq 0, i = 1, 2, ..., k \hspace{0.25cm}(1)$
+
+$h_i(X) = 0, i = 1, 2, ..., l \hspace{0.25cm}(2)$\\
+
+Supposons r objectifs, et tous ces objectif sont conflictuels, la fonction optimale est :\\
+
+$f(X) = (f_1(X), f_2(X), ..., f_r(X))$\\
+
+Trouver $X^* = (x_1^*, x_2^*, ..., x_n^*)$, optimiser $f(X^*)$ sous les contraintes (1) et (2). Les solutions qu'on obtient sont les solutions \textsc{Pareto efficiency}. \cite{6}
+
+\subsubsection{Définition : Pareto efficiency}
+Pareto efficiency est un concept en économie. Ce terme est nommé d'après Vilfredo Pareto, un économiste italien qui a utilisé le concept dans ses études d'efficacité économique et la répartition des revenus. Un optimum de Pareto est un état dans lequel nous ne pouvons pas améliorer le bien-être d'un individu sans détériorer d'un autre. 
+
+Nous pouvons dire que le vecteur $X^* \in F$ est un optimum de Pareto, si pour chaque $X \in F$, soit $\forall i \in I(f_i(X) = f_i(X^*)), I = \{1, 2, ..., r\}, soit \exists j \in I, f_j(X) > f_j(X^*).$
+
+Sachant que $F = \{X \in R^n | g_i(X) \geq 0, i = 1, 2, ..., k; h_j(X) = 0, j = 1, 2, ..., l\}$
+
+En général, l'optimisation multi-objectif donne un ensemble de solutions, plus d'une solution. Dans un ensemble de solutions P, on sélectionne un ensemble de solutions non dominées. Dans l'espace de recherche, les solutions non dominées sont les solutions Pareto optimal. L'ensemble de solutions non dominées forme \textsc{Pareto frontier}.
+
+L'objectif d'optimisation multi-objectif est de trouver un ensemble de solutions non dominées et proche du \textsc{Pareto frontier}.
+
+\begin{figure}[!ht]
+\label{fig:Pareto frontier}
+\centering
+\includegraphics[width=12cm]{Schemas/front_pareto.pdf}
+\caption{Pareto frontier}
+\end{figure}
+
+\subsubsection{Définition : Relation de dominance}
+P est un ensemble de solutions, il existe k objectifs : $f_1(), f_2(), ..., f_k()$. Pour chaque individu dans l'ensemble P. Il y a trois relations entre les deux solutions x et y. Pour x et y, soit x domine y, soit y domine x, soit x et y ne se domine pas leur même. Nous pouvons donc définir la relation ci-dessous :\\
+
+\begin{itemize}
+\item \textbf{La dominance :}
+
+Une solution x et une solution y appartiennent à l'ensemble P, x domine y si et seulement si : $\forall i \in \{1, 2, ..., k\} : f_i(x) \leq f_i(y) et \exists j \in\{1, 2, ..., k\} : f_j(x) < f_j(y).$ Nous notons y $\prec$ x.
+Si la solution x domine la solution y, nous disons que x est la solution non dominée et y est la solution dominée par x. Le symbole $\prec$ représente la relation dominée.
+\item \textbf{Non relation :}
+
+Une solution x et une solution y appartiennent à l'ensemble P, nous disons que la solution x et la solution y sont non relation si et seulement s'il n'existe pas la relation dominée entre elles.
+\end{itemize}
+
+\newpage
+
+\begin{figure}[!ht]
+\label{fig:Relation de dominance}
+\centering
+\includegraphics[width=12cm]{Schemas/dominance.pdf}
+\caption{Relation de dominance}
+\end{figure}
+
+Dans la figure ci-dessus, on peut savoir f1(B) > f1(A) et f2(B) > f2(A). En fonction de la définition de dominance, le point A domine le point B. Nous notons B $\prec$ A. Donc le point A est une solution non dominée et le point B est une solution dominée. Le point B n'appartient pas à l'ensemble de \textsc{Pareto frontier}, parce qu'il est dominée par le point A.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Algorithme BCA* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Algorithme de BCA*}
 Pour résoudre le problème de l'algorithme existant, mon encadrant propose un nouvel algorithme \textsc{BCA*} qui permet de rechercher un meilleur compromis. Cet algorithme se base sur une énumération implicite de solutions non-dominées, a la manière de \textsc{MOA*} \cite{3}, en se focalisant, durant la recherche, sur l'obtention d'un compromis adapté aux préférences de l'utilisateur.\\
 
-\textbf{Principe de l'algorithme de BCA*}
+\subsubsection{Principe de l'algorithme de BCA*}
 
-\textbf{Exemple de l'algorithme de BCA*} 
+\subsubsection{Exemple de l'algorithme de BCA*} 
 
 \begin{figure}[!ht]
 \label{fig:Un graphe à traiter}
 \centering
-\includegraphics[width=10cm]{Schemas/traiter.pdf}
+\includegraphics[width=8.5cm]{Schemas/traiter.pdf}
 \caption{Un graphe à traiter}
 \end{figure}
 
 \begin{figure}[!ht]
 \label{fig:Algorithme de BCA*}
 \centering
-\includegraphics[width=10cm]{Schemas/solution.pdf}
+\includegraphics[width=10.5cm]{Schemas/solution.pdf}
 \caption{Algorithme de BCA*}
 \end{figure}
 
@@ -524,9 +587,145 @@ Nous pouvons d'abord utiliser \textsc{Dijkstra  algorithm} qui permet d'obtenir 
 
 %Et puis, on continue parcourir tous les noeud jusqu'à la liste  g\_labels est vide, on pourra trouver qu'un meilleur compromis entre S et T dans la liste labels(T).\\
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Base de données %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Base de données}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Présentation de la base de données %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Présentation de la base de données}
+Pour trouver un itinéraire, il faut récupérer les informations géométriques comme les coordonnées de départ, de destination, et des tronçons, etc. Pour l'instant, il existe déjà les 7 tables :\\
+
+\begin{lstlisting}[language=SQL]
+TABLE agglo_teleatlas
+(
+  gid serial NOT NULL,
+  id bigint DEFAULT (-1),
+  "name" text,
+  oneway character varying(2),
+  categorie1 smallint DEFAULT 0,
+  categorie2 smallint DEFAULT 0,
+  tranquilite1 smallint DEFAULT 0,
+  tranquilite2 smallint DEFAULT 0,
+  desserte smallint DEFAULT 0,
+  paysage smallint DEFAULT 0,
+  x double precision DEFAULT 0,
+  y double precision DEFAULT 0,
+  angle double precision DEFAULT 0,
+  the_geom geometry,
+  the_geom2 geometry,
+  revetement smallint DEFAULT 0,
+  f_elev smallint DEFAULT 0,
+  t_elev smallint DEFAULT 0,
+  loire_a_velo smallint DEFAULT 0,
+  the_geom3 geometry,
+  type_route smallint DEFAULT 0,
+) 
+\end{lstlisting}
+
+La table \
+
+\begin{lstlisting}[language=SQL]
+CREATE TABLE edge_ta
+(
+  gid serial NOT NULL,
+  source integer NOT NULL,
+  destination integer NOT NULL,
+  id_tr integer NOT NULL,
+  difficulte double precision,
+  longueur double precision,
+  categorie1 smallint DEFAULT 0,
+  tranquilite smallint DEFAULT 0,
+  desserte integer DEFAULT 0,
+  sens_creation smallint DEFAULT 0,
+)
+\end{lstlisting}
+
+\begin{lstlisting}[language=SQL]
+CREATE TABLE edge_ta
+(
+  gid serial NOT NULL,
+  source integer NOT NULL,
+  destination integer NOT NULL,
+  id_tr integer NOT NULL,
+  difficulte double precision,
+  longueur double precision,
+  categorie1 smallint DEFAULT 0,
+  tranquilite smallint DEFAULT 0,
+  desserte integer DEFAULT 0,
+  sens_creation smallint DEFAULT 0,
+)
+\end{lstlisting}
+
+\begin{lstlisting}[language=SQL]
+CREATE TABLE geometry_columns
+(
+  f_table_catalog character varying(256) NOT NULL,
+  f_table_schema character varying(256) NOT NULL,
+  f_table_name character varying(256) NOT NULL,
+  f_geometry_column character varying(256) NOT NULL,
+  coord_dimension integer NOT NULL,
+  srid integer NOT NULL,
+  "type" character varying(30) NOT NULL,
+)
+\end{lstlisting}
+
+\begin{lstlisting}[language=SQL]
+CREATE TABLE loueur_reparateur
+(
+  gid serial NOT NULL,
+  nom character varying(100),
+  loueur smallint DEFAULT 0,
+  reparateur smallint DEFAULT 0,
+  vente smallint DEFAULT 0,
+  adresse character varying(250),
+  code_postal integer DEFAULT 0,
+  ville character varying(200),
+  site_internet character varying(250),
+  horaires character varying(250),
+  photo character varying(250),
+  the_geom geometry,
+  the_geom2 geometry,
+)
+\end{lstlisting}
+
+\begin{lstlisting}[language=SQL]
+CREATE TABLE node_ta
+(
+  gid serial NOT NULL,
+  the_geom geometry,
+  the_geom2 geometry,
+  elev smallint DEFAULT 0,
+  altitude integer,
+)
+\end{lstlisting}
+
+\begin{lstlisting}[language=SQL]
+CREATE TABLE poi
+(
+  gid serial NOT NULL,
+  categorie smallint DEFAULT 0,
+  souscategorie smallint DEFAULT 0,
+  nom character varying(100),
+  adresse character varying(250),
+  code_postal integer DEFAULT 0,
+  ville character varying(200),
+  site_internet character varying(250),
+  horaires character varying(250),
+  photo character varying(250),
+  the_geom geometry,
+  the_geom2 geometry,
+  description character varying(300),
+)
+\end{lstlisting} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Postgresql et Postgis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Postgresql et Postgis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Réalisation de la base de données %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Réalisation de la base de données}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Réalisation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Réalisation}
+
 \newpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Test d'intégration %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Test d'intégration %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Test d'intégration de site Géovélo}
 Quand on a fini de modifier la zone de vos préférences, il faut tester son intégration. Ca signifie que les utilisateur ne possèdent pas tous le même navigateur, certains possèdent Internet Explorer, d'autres Firefox. Le problème n'est pas non plus la multitude de navigateurs, mais également les différents versions de chacun. Il est souvent fastidieux de tester un site sur les différents navigateurs existants. Selon la recherche, on a décidé d'utiliser des outils suivants:\\
 
@@ -541,7 +740,7 @@ C'est une application développée par Adobe produisant des rendus selon différent
 
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% bibliography %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% bibliography %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
 
 \bibitem[Dijkstra(1959)]{0}
@@ -561,6 +760,10 @@ G. Sauvanet, E. Néron. <<Search for the best compromise solution on Multiobjecti
 
 \bibitem[Zhang(2009)]{5}
 Juan Zhang. <<Calcul d'itinéraires touristiques pour vélo>>, Rapport de fin d'étude, École Polytechnique de l'Université de Tours, 64, avenue Jean Portalis, 37200 Tours, d2009.
+
+\bibitem[Wikipedia]{6}
+Wikipedia, Pareto efficiency, http://en.wikipedia.org/wiki/Pareto\_efficiency.
+
 \end{thebibliography}
 
 			

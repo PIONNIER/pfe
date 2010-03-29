@@ -8,13 +8,26 @@
 \contentsline {subsection}{\numberline {1.4.2}Besoins non fonctionnels}{12}{subsection.20}
 \contentsline {section}{\numberline {1.5}Environnement du projet}{12}{section.21}
 \contentsline {section}{\numberline {1.6}Technologies utilisées}{12}{section.22}
-\contentsline {subsubsection}{Client}{13}{section*.23}
-\contentsline {subsubsection}{Serveur}{13}{section*.24}
-\contentsline {subsubsection}{XML-RPC}{13}{section*.25}
-\contentsline {subsubsection}{Base de données}{13}{section*.26}
+\contentsline {subsection}{\numberline {1.6.1}Client}{12}{subsection.23}
+\contentsline {subsection}{\numberline {1.6.2}Serveur}{13}{subsection.24}
+\contentsline {subsection}{\numberline {1.6.3}XML-RPC}{13}{subsection.25}
+\contentsline {subsection}{\numberline {1.6.4}Base de données}{13}{subsection.26}
 \contentsline {chapter}{\numberline {2}Méthodes}{14}{chapter.27}
 \contentsline {section}{\numberline {2.1}Présentation du problème}{14}{section.28}
-\contentsline {subsubsection}{Méthodes utilisées}{15}{section*.33}
-\contentsline {subsubsection}{Algorithme de Dijkstra}{15}{section*.34}
-\contentsline {subsubsection}{Algorithme de BCA*}{17}{section*.44}
-\contentsline {section}{\numberline {2.2}Test d'intégration de site Géovélo}{18}{section.49}
+\contentsline {section}{\numberline {2.2}Méthodes utilisées}{15}{section.33}
+\contentsline {subsection}{\numberline {2.2.1}Algorithme de Dijkstra}{15}{subsection.34}
+\contentsline {subsubsection}{Principe de l'algorithme de Dijkstra}{15}{section*.35}
+\contentsline {subsubsection}{Exemple de l'algorithme de Dijkstra}{16}{section*.39}
+\contentsline {subsection}{\numberline {2.2.2}Optimisation multi-objectif}{17}{subsection.46}
+\contentsline {subsubsection}{Définition : Problème multi-objectif}{17}{section*.47}
+\contentsline {subsubsection}{Définition : Pareto efficiency}{17}{section*.48}
+\contentsline {subsubsection}{Définition : Relation de dominance}{18}{section*.51}
+\contentsline {subsection}{\numberline {2.2.3}Algorithme de BCA*}{19}{subsection.54}
+\contentsline {subsubsection}{Principe de l'algorithme de BCA*}{19}{section*.55}
+\contentsline {subsubsection}{Exemple de l'algorithme de BCA*}{19}{section*.56}
+\contentsline {chapter}{\numberline {3}Base de données}{21}{chapter.61}
+\contentsline {section}{\numberline {3.1}Présentation de la base de données}{21}{section.62}
+\contentsline {section}{\numberline {3.2}Postgresql et Postgis}{23}{section.170}
+\contentsline {section}{\numberline {3.3}Réalisation de la base de données}{23}{section.171}
+\contentsline {chapter}{\numberline {4}Réalisation}{24}{chapter.172}
+\contentsline {section}{\numberline {4.1}Test d'intégration de site Géovélo}{25}{section.173}
