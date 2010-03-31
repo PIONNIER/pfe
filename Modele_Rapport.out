@@ -2,11 +2,11 @@
 \BOOKMARK [1][]{section.7}{1.1 Contexte}{chapter.6}% 2
 \BOOKMARK [1][]{section.8}{1.2 Description de l'existant}{chapter.6}% 3
 \BOOKMARK [1][]{section.13}{1.3 Objectifs du projet}{chapter.6}% 4
-\BOOKMARK [1][]{section.14}{1.4 Description des Besoins}{chapter.6}% 5
+\BOOKMARK [1][]{section.14}{1.4 Définition des Besoins}{chapter.6}% 5
 \BOOKMARK [2][]{subsection.15}{1.4.1 Besoins fonctionnels}{section.14}% 6
 \BOOKMARK [2][]{subsection.20}{1.4.2 Besoins non fonctionnels}{section.14}% 7
 \BOOKMARK [1][]{section.21}{1.5 Environnement du projet}{chapter.6}% 8
-\BOOKMARK [1][]{section.22}{1.6 Technologies utilisées}{chapter.6}% 9
+\BOOKMARK [1][]{section.22}{1.6 Présentation du contexte technique}{chapter.6}% 9
 \BOOKMARK [2][]{subsection.23}{1.6.1 Client}{section.22}% 10
 \BOOKMARK [2][]{subsection.24}{1.6.2 Serveur}{section.22}% 11
 \BOOKMARK [2][]{subsection.25}{1.6.3 XML-RPC}{section.22}% 12
@@ -17,9 +17,9 @@
 \BOOKMARK [2][]{subsection.34}{2.2.1 Algorithme de Dijkstra}{section.33}% 17
 \BOOKMARK [2][]{subsection.46}{2.2.2 Optimisation multi-objectif}{section.33}% 18
 \BOOKMARK [2][]{subsection.54}{2.2.3 Algorithme de BCA*}{section.33}% 19
-\BOOKMARK [0][]{chapter.61}{3 Base de données}{}% 20
-\BOOKMARK [1][]{section.62}{3.1 Présentation de la base de données}{chapter.61}% 21
-\BOOKMARK [1][]{section.170}{3.2 Postgresql et Postgis}{chapter.61}% 22
-\BOOKMARK [1][]{section.171}{3.3 Réalisation de la base de données}{chapter.61}% 23
-\BOOKMARK [0][]{chapter.172}{4 Réalisation}{}% 24
-\BOOKMARK [1][]{section.173}{4.1 Test d'intégration de site Géovélo}{chapter.172}% 25
+\BOOKMARK [0][]{chapter.61}{3 Réalisation des besoins}{}% 20
+\BOOKMARK [1][]{section.62}{3.1 Implémentation de l'algorithme BCA*}{chapter.61}% 21
+\BOOKMARK [1][]{section.67}{3.2 Implémentation des nouveaux critères}{chapter.61}% 22
+\BOOKMARK [2][]{subsection.68}{3.2.1 Base de données}{section.67}% 23
+\BOOKMARK [1][]{section.172}{3.3 Modification de l'interface}{chapter.61}% 24
+\BOOKMARK [1][]{section.173}{3.4 Test d'intégration de site Géovélo}{chapter.61}% 25

@@ -15,20 +15,20 @@
     \coordinate (e) at (2.5,1);
     % Draw lines indicating intersection with y and x axis. Here we use
     % the perpendicular coordinate system
-    \draw[dashed] (yaxis |- a) node[left] {$400$}
+    \draw[loosely dotted] (yaxis |- a) node[left] {$400$}
         -| (xaxis -| a) node[below] {$50$};
-    \draw[dashed] (yaxis |- b) node[left] {$300$}
+    \draw[loosely dotted] (yaxis |- b) node[left] {$300$}
         -| (xaxis -| b) node[below] {$100$};
-    \draw[dashed] (yaxis |- c) node[left] {$250$}
+    \draw[loosely dotted] (yaxis |- c) node[left] {$250$}
         -| (xaxis -| c) node[below] {$150$};
-    \draw[dashed] (yaxis |- d) node[left] {$200$}
+    \draw[loosely dotted] (yaxis |- d) node[left] {$200$}
         -| (xaxis -| d) node[below] {$200$};
-    \draw[dashed] (yaxis |- e) node[left] {$100$}
+    \draw[loosely dotted] (yaxis |- e) node[left] {$100$}
         -| (xaxis -| e) node[below] {$250$};
     % Draw a dot to indicate intersection point
-    \fill[red] (a) circle (1.2pt);
-    \fill[red] (b) circle (1.2pt);
-    \fill[red] (c) circle (1.2pt);
-    \fill[red] (d) circle (1.2pt);
-    \fill[red] (e) circle (1.2pt);
+    \draw[red] (a) circle (1.5pt);
+    \draw[red] (b) circle (1.5pt);
+    \draw[red] (c) circle (1.5pt);
+    \draw[red] (d) circle (1.5pt);
+    \draw[red] (e) circle (1.5pt);
 \end{tikzpicture}

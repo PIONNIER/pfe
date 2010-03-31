@@ -151,7 +151,7 @@ Pour l'instant, le site Géovélo fonctionne bien en considérant seulement deux cr
 Selon le temps restant, nous devrons aussi modifier l'interface du site Géovélo. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Description des Besoins %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Description des Besoins}
+\section{Définition des Besoins}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Besoins fonctionnels %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Besoins fonctionnels}
@@ -254,7 +254,7 @@ Nous utilisons Postgresql comme SGBD et son module géographique Postgis. Nous ut
 Nous utilisons le serveur apache2 et son module PHP5 comme serveur web.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Technologies utilisées %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Technologies utilisées}
+\section{Présentation du contexte technique}
 Pendant mon projet de fin d'étude, il est nécessaire d'utiliser différents langages et outils. Pour la partie de calcul d'itinéraires, nous utilisons C++ et LEDA. Pour la partie de site Géovélo, nous utilisons HTML, CSS, Javascript, PHP, Xajax, API de Google Maps. Pour la partie de base de données, nous utilisons PostgreSQL et PostGIS. Je vais les diviser en quatre parties (Client, Serveur, XMLRPC, Base de données) pour expliquer leur utilisations et fonctionnalités.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Subsection : Client %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -469,7 +469,9 @@ P est un ensemble de solutions, il existe k objectifs : $f_1(), f_2(), ..., f_k(
 \item \textbf{La dominance :}
 
 Une solution x et une solution y appartiennent à l'ensemble P, x domine y si et seulement si : $\forall i \in \{1, 2, ..., k\} : f_i(x) \leq f_i(y) et \exists j \in\{1, 2, ..., k\} : f_j(x) < f_j(y).$ Nous notons y $\prec$ x.
-Si la solution x domine la solution y, nous disons que x est la solution non dominée et y est la solution dominée par x. Le symbole $\prec$ représente la relation dominée.
+
+Si la solution x domine la solution y, nous disons que x est la solution non dominée et y est la solution dominée par x. Le symbole $\prec$ représente la relation dominée.\\
+
 \item \textbf{Non relation :}
 
 Une solution x et une solution y appartiennent à l'ensemble P, nous disons que la solution x et la solution y sont non relation si et seulement s'il n'existe pas la relation dominée entre elles.
@@ -587,11 +589,48 @@ Nous pouvons d'abord utiliser \textsc{Dijkstra  algorithm} qui permet d'obtenir 
 
 %Et puis, on continue parcourir tous les noeud jusqu'à la liste  g\_labels est vide, on pourra trouver qu'un meilleur compromis entre S et T dans la liste labels(T).\\
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Base de données %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Base de données}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Présentation de la base de données %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Présentation de la base de données}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Réalisation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Réalisation des besoins}
+Dans cette partie, nous allons maintenant présenter les besoins réalisés. Pour chacun de ces besoins, nous commencerons par faire un point sur ce qui a été fait, en détaillant exactement le travail.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Implémentation de l'algorithme BCA* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Implémentation de l'algorithme BCA*}
+
+\begin{figure}[!ht]
+\label{fig:Architecture principale de Géovélo}
+\centering
+\includegraphics[width=10.5cm]{Schemas/archi.pdf}
+\caption{Architecture principale de Géovélo}
+\end{figure}
+
+\begin{figure}[!ht]
+\label{fig:Architecture du site Géovélo}
+\centering
+\includegraphics[width=15cm]{Schemas/site.pdf}
+\caption{Architecture du site Géovélo}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Implémentation des nouveaux critères %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Implémentation des nouveaux critères}
+\subsection{Base de données}
+\subsubsection{Présentation de la base de données}
 Pour trouver un itinéraire, il faut récupérer les informations géométriques comme les coordonnées de départ, de destination, et des tronçons, etc. Pour l'instant, il existe déjà les 7 tables :\\
+
+\begin{itemize}
+\item \texttt{agglo\_teleatlas} ;
+\item \texttt{edge\_ta} ;
+\item \texttt{geometry\_columns} ;
+\item \texttt{loueur\_reparateur} ;
+\item \texttt{node\_ta} ;
+\item \texttt{poi} ; 
+\item \texttt{spatial\_ref\_sys}.\\
+
+\end{itemize}
+
+Dans la partie suivantes, je vais présenter la fonctionnalité de chaque table et expliquer des attributs de chaque table.\\
 
 \begin{lstlisting}[language=SQL]
 TABLE agglo_teleatlas
@@ -620,8 +659,6 @@ TABLE agglo_teleatlas
 ) 
 \end{lstlisting}
 
-La table \
-
 \begin{lstlisting}[language=SQL]
 CREATE TABLE edge_ta
 (
@@ -638,21 +675,44 @@ CREATE TABLE edge_ta
 )
 \end{lstlisting}
 
-\begin{lstlisting}[language=SQL]
-CREATE TABLE edge_ta
-(
-  gid serial NOT NULL,
-  source integer NOT NULL,
-  destination integer NOT NULL,
-  id_tr integer NOT NULL,
-  difficulte double precision,
-  longueur double precision,
-  categorie1 smallint DEFAULT 0,
-  tranquilite smallint DEFAULT 0,
-  desserte integer DEFAULT 0,
-  sens_creation smallint DEFAULT 0,
-)
-\end{lstlisting}
+La table \texttt{edge\_ta} consiste à stocker toutes les informations concernant des tronçons. Les attributs utilisés sont suivants :\\
+
+\begin{itemize}
+\item \texttt{source} : Identificateur de départ ;
+\item \texttt{destination} : Identificateur de destination ;
+\item \texttt{id\_tr} : Identificateur de tronçons ;
+\item \texttt{difficulte} : 
+\item \texttt{longueur} : Longueur de tronçons ; 
+\item \texttt{categorie1} : Type d'aménagement vélo :
+	\begin{enumerate}
+	\item non renseigne ;
+	\item piste cyclable ;
+ 	\item bande cyclable ;
+	\item mixte (pieton / pas pieton) ;
+	\item rien.
+	\end{enumerate}
+\item \texttt{tranquilite} : 	Tronçon est conseillé pour le vélo ou non :
+	\begin{enumerate}
+	\item conseillé ;
+	\item non conseillé.
+	\end{enumerate}
+\item \texttt{desserte} : Tronçon est un tronçon de desserte ou non :
+	\begin{enumerate}
+	\item pas desserte ;
+	\item desserte.
+	\end{enumerate}
+\item \texttt{sens\_creation} : Sens de tronçons.\\
+
+\end{itemize} 
+
+Pour l'instant, il concerne que deux critères (distance et sécurité) :\\
+
+\begin{itemize}
+\item Distance : il suffit de récupérer l'attribut \texttt{longueur} ;
+\item Sécurité : il n'existe pas de valeur fixe pour le critère sécurité, les attributs \texttt{categorie1} et \texttt{tranquilite} sont utilisés pour calculer la sécurité.\\
+
+\end{itemize}
+
 
 \begin{lstlisting}[language=SQL]
 CREATE TABLE geometry_columns
@@ -686,6 +746,8 @@ CREATE TABLE loueur_reparateur
 )
 \end{lstlisting}
 
+La table \texttt{loueur\_reparateur} consiste à stocker toutes les informations concernant des lieux de loueur et de réparateur.\\
+
 \begin{lstlisting}[language=SQL]
 CREATE TABLE node_ta
 (
@@ -693,9 +755,18 @@ CREATE TABLE node_ta
   the_geom geometry,
   the_geom2 geometry,
   elev smallint DEFAULT 0,
-  altitude integer,
 )
 \end{lstlisting}
+
+La table \texttt{node\_ta} consiste à stocker toutes les informations concernant des noeuds. Les attributs utilisés sont suivants :\\
+
+\begin{itemize}
+\item \texttt{gid} : Identificateur de noeud ;
+\item \texttt{the\_geom} : Coordonnées de noeud ;
+\item \texttt{id\_tr} : Identificateur de tronçons.\\
+
+\end{itemize} 
+
 
 \begin{lstlisting}[language=SQL]
 CREATE TABLE poi
@@ -715,13 +786,11 @@ CREATE TABLE poi
   description character varying(300),
 )
 \end{lstlisting} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Postgresql et Postgis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Postgresql et Postgis}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Réalisation de la base de données %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Réalisation de la base de données}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chapter : Réalisation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Réalisation}
+\subsubsection{Réalisation de la base de données}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section : Modification de l'interface %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modification de l'interface}
 
 \newpage
 

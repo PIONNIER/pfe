@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2010.2.26)  29 MAR 2010 16:30
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2010.2.26)  31 MAR 2010 09:44
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -824,7 +824,7 @@ LaTeX Font Warning: Font shape `T1/lmss/m/sc' in size <10.95> not available
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-<images/Site.png, id=218, 1079.53313pt x 552.56438pt>
+<images/Site.png, id=222, 1079.53313pt x 552.56438pt>
 File: images/Site.png Graphic file (type png)
  <use images/Site.png>
 Underfull \hbox (badness 10000) in paragraph at lines 93--94
@@ -848,7 +848,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--115
 
  []
 
-<images/usecase.pdf, id=228, 571.13374pt x 799.98875pt>
+<images/usecase.pdf, id=232, 571.13374pt x 799.98875pt>
 File: images/usecase.pdf Graphic file (type pdf)
 
 <use images/usecase.pdf>
@@ -914,7 +914,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 210--211
 
  []
 
-<Images/preferences.pdf, id=309, 378.41376pt x 195.73125pt>
+<Images/preferences.pdf, id=313, 378.41376pt x 195.73125pt>
 File: Images/preferences.pdf Graphic file (type pdf)
 
 <use Images/preferences.pdf> [11]
@@ -969,7 +969,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 443--444
 
  []
 
-[17] <Schemas/front_pareto.pdf, id=431, 511.9125pt x 318.18875pt>
+[17] <Schemas/front_pareto.pdf, id=435, 511.9125pt x 318.18875pt>
 File: Schemas/front_pareto.pdf Graphic file (type pdf)
 
 <use Schemas/front_pareto.pdf>
@@ -977,110 +977,158 @@ Underfull \hbox (badness 10000) in paragraph at lines 466--467
 
  []
 
-[18 <./Schemas/front_pareto.pdf>]
-<Schemas/dominance.pdf, id=543, 524.96124pt x 318.18875pt>
-File: Schemas/dominance.pdf Graphic file (type pdf)
 
-<use Schemas/dominance.pdf>
-Underfull \hbox (badness 10000) in paragraph at lines 492--493
+Underfull \hbox (badness 10000) in paragraph at lines 473--474
 
  []
 
-<Schemas/traiter.pdf, id=545, 386.44376pt x 242.9075pt>
+[18 <./Schemas/front_pareto.pdf>]
+<Schemas/dominance.pdf, id=547, 524.96124pt x 318.18875pt>
+File: Schemas/dominance.pdf Graphic file (type pdf)
+
+<use Schemas/dominance.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 493--494
+
+ []
+
+<Schemas/traiter.pdf, id=549, 386.44376pt x 242.9075pt>
 File: Schemas/traiter.pdf Graphic file (type pdf)
 
-<use Schemas/traiter.pdf> <Schemas/solution.pdf, id=546, 469.755pt x 321.2pt>
+<use Schemas/traiter.pdf> <Schemas/solution.pdf, id=550, 469.755pt x 321.2pt>
 File: Schemas/solution.pdf Graphic file (type pdf)
 
 <use Schemas/solution.pdf> [19 <./Schemas/dominance.pdf> <./Schemas/traiter.pdf
 >] [20 <./Schemas/solution.pdf>]
 Chapitre 3.
+<Schemas/archi.pdf, id=704, 374.39874pt x 357.335pt>
+File: Schemas/archi.pdf Graphic file (type pdf)
+ <use Schemas/archi.pdf>
+<Schemas/site.pdf, id=705, 552.0625pt x 534.99875pt>
+File: Schemas/site.pdf Graphic file (type pdf)
+ <use Schemas/site.pdf>
+[21
 
-Underfull \hbox (badness 10000) in paragraph at lines 595--596
+ <./Schemas/archi.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 620--621
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 629--630
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 633--634
+
+ []
+
+[22 <./Schemas/site.pdf>]
 (/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <9> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 598.
- [21
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 636.
 
-]
-[22] [23]
-Chapitre 4.
-[24
+Underfull \hbox (badness 10000) in paragraph at lines 678--679
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 729--730
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 704--705
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 734--735
+Underfull \hbox (badness 10000) in paragraph at lines 708--709
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 738--739
+Underfull \hbox (badness 10000) in paragraph at lines 712--713
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 749--750
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 761--762
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 766--767
 
  []
 
 [25]
-Overfull \hbox (13.638pt too wide) in paragraph at lines 752--753
+Underfull \hbox (badness 10000) in paragraph at lines 799--800
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 804--805
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 808--809
+
+ []
+
+[26]
+Overfull \hbox (13.638pt too wide) in paragraph at lines 822--823
 []\T1/lmss/m/n/10.95 (-20) Wikipedia, Mul-tiob-jec-tive op-ti-mi-za-tion, http:
 //en.wikipedia.org/wiki/Multiobjective_optimization. 
  []
 
-AED: lastpage setting LastPage [26
+AED: lastpage setting LastPage [27
 
 ] ( FP-DIV ) ( FP-TRUNC ) ( FP-MUL )
-( FP-SUB ) ( FP-TRUNC ) ( FP-ZERO? ) ( FP-SUB ) ( FP-TRUNC ) ( FP-SUB )
-( FP-POS? ) ( FP-SUB ) ( FP-POS? ) [27
-
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 773.
+( FP-SUB ) ( FP-TRUNC ) ( FP-ZERO? )
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 843.
  [28
 
+
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 773.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 843.
  (./Modele_Rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 773.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 843.
 Package rerunfilecheck Info: File `Modele_Rapport.out' has not changed.
-(rerunfilecheck)             Checksum: C72DDDDC5A0448B7670164A10C9EB34E;1720.
- )
-(\end occurred when \iffalse on line 773 was incomplete) 
+(rerunfilecheck)             Checksum: D8BC2C03E4EB3B0F9E45C4C04947CC04;1767.
+ ) 
 Here is how much of TeX's memory you used:
- 16527 strings out of 493848
- 275617 string characters out of 3149207
- 656084 words of memory out of 3000000
- 19082 multiletter control sequences out of 15000+200000
- 76231 words of font info for 96 fonts, out of 3000000 for 9000
+ 16533 strings out of 493848
+ 275753 string characters out of 3149207
+ 571903 words of memory out of 3000000
+ 19089 multiletter control sequences out of 15000+200000
+ 73157 words of font info for 94 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 40i,15n,68p,810b,1768s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/200
-9/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2009/texmf-dist/f
-onts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips
-/lm/lm-mathsy.enc}{/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/lm/lm-mat
-hit.enc}</usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></
-usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/
-texlive/2009/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2
-009/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2009/texmf-
-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2009/texmf-dist/fonts/
-type1/public/lm/lmr10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/publi
-c/lm/lmr8.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmss10.
-pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/
-local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texli
-ve/2009/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2009/
-texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2009/texmf-dist
-/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2009/texmf-dist/fonts/type
-1/public/lm/lmtk10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/l
-m/lmtt10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmtt9.pf
-b>
-Output written on Modele_Rapport.pdf (28 pages, 1827032 bytes).
+ 40i,15n,68p,810b,1283s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
+texlive/2009/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2009/t
+exmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2009/texmf-dist/
+fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2009/texmf-dist/fonts/type
+1/public/lm/lmbx10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/l
+m/lmbx12.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmcsc10.
+pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/
+local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texli
+ve/2009/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2009/tex
+mf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2009/texmf-dist/font
+s/type1/public/lm/lmss10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/pu
+blic/lm/lmss12.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lm
+ss8.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb>
+</usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/loca
+l/texlive/2009/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2
+009/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2009/texmf-
+dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2009/texmf-dist/fonts
+/type1/public/lm/lmtt9.pfb>
+Output written on Modele_Rapport.pdf (28 pages, 1953859 bytes).
 PDF statistics:
- 955 PDF objects out of 1000 (max. 8388607)
+ 1197 PDF objects out of 1200 (max. 8388607)
  215 named destinations out of 1000 (max. 500000)
- 23810 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 21772 words of extra memory for PDF output out of 24883 (max. 10000000)
 

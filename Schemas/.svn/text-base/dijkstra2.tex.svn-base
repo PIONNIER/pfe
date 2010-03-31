@@ -1,0 +1,24 @@
+
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=black!25,draw=none,text=black]
+  \tikzstyle{edge} = [draw,thick,-]
+  
+  \node[state] (a) [label={above:$0$}]                  {$1$};
+  \node[state] (b) [label={above:$2$},above right of=a] {$2$};
+  \node[state] (c) [label={below:$3$},below right of=a] {$3$};
+  \node[state] (d) [label={above:$6$},right of=b]       {$4$};
+  \node[state] (e) [label={below:$4$},right of=c]       {$5$};
+  \node[state] (f) [label={right:$6$},below right of=d] {$6$};
+
+  \path (a) edge [draw,line width=3pt,red!50] node {2} (b)
+            edge                              node {4} (c)
+        (b) edge [draw,line width=3pt,red!50] node {1} (c)
+            edge [draw,line width=3pt,red!50] node {4} (d)
+            edge [draw,line width=3pt,red!50] node {2} (e)   
+        (c) edge                              node {3} (e)
+        (d) edge                              node {2} (f)
+        (e) edge                              node {3} (d)
+        	    edge [draw,line width=3pt,red!50] node {2} (f);
+	    
+\end{tikzpicture}
