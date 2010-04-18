@@ -1,0 +1,197 @@
+% Chapter : Installation et configuration
+\chapter{Guide - Installation et configuration}
+
+% Section : Installation des packages nécessaires
+\section{Installation des packages nécessaires}
+	
+	Nous travaillons sous le système de Ubuntu. Pour installer les paquets et les outils ci-dessous, nous pouvons utiliser deux façons:
+
+	1. Utiliser l'outil Gestionnaire de paquets Synaptic 
+
+	2. Utiliser la ligne de commande sudo apt-get install dans le terminal.\\
+
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Nom} & \textbf{Paquets}\\  
+		\hline
+		Apache & \hspace{1.3cm} apache2, apache2.2-common, apache2-mpm-prefork, apache2-utils \hspace{1.3cm} \\
+		\hline
+		PHP & libapache2-mod-php5, php5, php5-common\\
+		\hline
+		PostgreSQL & php5-pgsql, postgresql-8.3-postgis, libpq5, libpq-dev\\
+		\hline
+		XMLRPC & libxmlrpc++0, libxmlrpc++-dev\\
+		\hline
+		pgAdmin & pgadmin3\\
+		\hline
+		CodeBlocks & codeblocks, codeblocks-contrib, libcodeblocks0, libwxsmithlib0\\
+		\hline
+		QGIS & qgis, libqgis1-dev\\
+		\hline
+	\end{tabular}
+	\\
+	\\
+
+	Si votre version de Ubuntu est supérieure à 8.04, vous devez installer deux paquets supplémentaires \texttt{gcc-4.2} et \texttt {g++-4.2}, parce que LEDA ne peut s'exécuter seulement qu'en version 4.2.
+
+% Section : Configuration de  la base de données
+\section{Configuration de  la base de données}
+
+	PostgreSQL est un serveur qui permet de se connecter à différentes bases de données, par défaut il n'existe qu'un utilisateur postgres qui peut se connecter, pour créer un nouvel utilisateur et une nouvelle base de données, nous devons utiliser ce compte.
+
+\begin{lstlisting}
+$ sudo su postgres
+$ psql
+postgres=# create user 'nom_utilisateur';
+postgres=# alter role 'nom_utilisateur' with createdb;
+postgres=# create databse 'nom_utilisateur';
+postgres=# alter user 'nom_utilisateur' with encrypted password 'mot_de_passe';
+postgres=# \q
+postgres@ubuntu:~$ exit
+nom_utilisateur@ubuntu:~\$ psql
+\end{lstlisting} 
+
+	Nous exécutons les commandes ci-dessus, après nous voyons que la ligne de commande est devenue nom\_utilisateur=>, cela signifie que nous ne sommes pas un superutilisateur, pour changer le droit d'utilisateur, nous utilisons la commande ci-dessous.
+
+\begin{lstlisting}
+postgres=# alter user 'nom_utilisateur' superuser;
+\end{lstlisting}
+
+	Pour configurer notre base de données, nous utilisons les commandes ci-dessous. La commande createlang permet d'ajouter le langage de procédures PL/pgsql sur la base de données.
+	
+	\newpage
+
+\begin{lstlisting}
+$ cd /usr/share/postgresql-8.3-postgis
+$ createlang plpgsql 'nom_base_de_données'
+\end{lstlisting}
+
+	\textbf{PL/psql} : (Procedural Language/PostgreSQL Structured Query Language) est un langage procédural soutenu par le PostgreSQL. C'est facile à utiliser. Nous pouvons l'utiliser pour augmenter la structure de contrôle pour le langage SQL; effectuer des calculs complexes; hériter de tous les types définis par utilisateurs, les fonctions et opérateurs. De plus, nous pouvons utiliser toutes les choses que nous définissons dans la fonction de langage C.\\
+
+	Le fichier \texttt{lwpostgis.sql} contient des divers types spatiaux et fonctions. Nous utilisons la commande c-dessous pour l'ajoutons à notre base de données. 
+
+\begin{lstlisting}
+$ psql -d 'nom_base_de_données' -f lwpostgis.sql
+\end{lstlisting}
+	
+	Le fichier \texttt{spatial\_ref\_sys.sql} contient des coordonnées spatiales. Nous utilisons la commande c-dessous pour l'ajoutons à notre base de données.
+
+\begin{lstlisting}
+$ psql -d 'nom_base_de_données' -f spatial_ref_sys.sql
+\end{lstlisting}
+
+	Nous utilisons les commandes ci-dessous pour autoriser l'utilisateur à utiliser et modifier toutes les tables dans la base de données.
+
+\begin{lstlisting}
+# alter table spatial_ref_sys owner to 'nom_utilisateur';
+'superutilisateur'=# alter table geometry_columns owner to 'nom_utilisateur';
+\end{lstlisting}
+
+	\begin{figure}[!ht]
+		\label{fig:Ajouter un serveur dans l'outil pgAdmin3}
+		\centering
+		\includegraphics[scale=0.7]{images/pdAdmin.png}
+		\caption{Ajouter un serveur dans l'outil pgAdmin}
+	\end{figure}
+
+	Nous ouvrons l'outil pgAdmin3 et cliquons sur "Fichier -> Ajouter un serveur" pour se connecter au nouveau serveur.\\
+
+	Nous importons nos bases de données existantes, s'il existe des erreurs, nous pouvons changer le nom d'utilisateur précédent en notre propre nom.
+	
+% Section : Configuration du site web Géovélo
+\section{Configuration du site web Géovélo}
+
+	Nous entrons "http://localhost/" dans un navigateur, il affiche "It works!". Cela veut dire que notre serveur fonctionne. Nous pouvons copier le répertoire du site web Géovélo "geovelo" dans le répertoire "/var/www/".
+	
+\begin{lstlisting}
+$ sudo cp -a geovelo /var/www/
+\end{lstlisting}
+
+	Dans le répertoire "/var/www/", nous ajoutons tous les droits à le répertoire "geovelo".
+
+\begin{lstlisting}
+$ sudo chmod 777 geovelo
+$ sudo chmod 777 -R geovelo
+$ cd geovelo/
+$ sudo chmod 777 *
+\end{lstlisting}
+
+	Dans le répertoire "/var/www/geovelo/acces\_donnees/", nous changeons la configuration de ficher "cDatabase.php" en fonction de notre configuration. Et puis, nous utilisons "http://localhost/geovelo/" pour consulter notre site web.
+
+	En ce moment nous avons bien configuré notre base de données et site web, nous nous préparerons \`a lancer le serveur XMLRPC.
+	
+\section{Configuration de LEDA}
+
+	Nous téléchargeons le paquet de LEDA depuis le site officiel, ensuite décompressons ce fichier dans le répertoire "/home/'nom\_utilisateur'/LEDA".\\
+ 
+	\textbf{LEDA} : (The Library of Efficient Data types and Algorithms) est une librairie C++ qui offre une grande variété d'algorithmes et de structures adaptés aux graphes et aux calculs géométriques. Dans mon projet il est nécessaire de calculer un itinéraire sur la carte, donc c'est plus facile de calculer l'itinéraire en utilisant cette librairie existante.
+
+\begin{lstlisting}
+$ gedit .bashrc
+\end{lstlisting}
+
+	Ajoutons "export LEDAROOT=/home/'nom\_utilisateur'/LEDA" après  la ligne "export HISTCONTROL=ignoreboth".\\
+
+	Nous ouvrons notre projet existant \texttt{ServerXmlRpc.cbp} en utilisant l'outil CodeBlocs. A la ligne 35 de fichier \texttt{loadData.cpp}, changeons la configuration de la base de données. Utilisons le clic droit de la souris sur le projet "ServerXmlRpc", choisissons "Build options..." et cliquons sur "ServerXmlRpc" pour modifier le répertoire dans le "Linker settings" et "Search directories".
+
+	\newpage
+	
+	\begin{figure}[!ht]
+		\label{fig:Linker settings dans l'outil codebloces}
+		\centering
+		\includegraphics[scale=0.6]{images/Linker_settings.png}
+		\caption{Linker settings dans l'outil codeblocs}
+	\end{figure}
+
+	\begin{figure}[!ht]
+		\label{fig:Search directories dans l'outil codebloces}
+		\centering
+		\includegraphics[scale=0.6]{images/Search_directories.png}
+		\caption{Search directories dans l'outil codeblocs}
+	\end{figure}
+
+	\newpage
+	Ensuite, Cliquons sur "settings", choisissons "Compiler and debugger" pour définir notre version de g++ par défaut. Nous pouvons le modifier avec l'aide de l'image ci-dessous.
+
+\begin{figure}[!ht]
+	\label{fig:Complier and debugger settings}
+	\centering
+	\includegraphics[scale=0.5]{images/settings.png}
+	\caption{Complier and debugger settings}
+\end{figure}
+
+	Enfin nous lançons le serveur XMLRPC, quand le terminal affiche l'image ci-dessous, ça signifie que notre serveur marche bien, en ce moment nous avons réussi à installer Géovélo.\\
+
+	\begin{figure}[!ht]
+		\label{fig:ServerXmlRpc}
+		\centering
+		\includegraphics[scale=0.6]{images/ServerXmlRpc.png}
+		\caption{ServerXmlRpc}
+	\end{figure}
+	
+	\newpage
+	
+	Pour le serveur à distance, nous pouvons créer un script pour compiler et exécuter notre programme. Par exemple, nous créons un script \texttt{script.sh}.
+	
+\begin{lstlisting}
+g++-4.1 -Wall -O2 -Wall -I/home/nobody/LEDA-6/incl -c TestBCAstar.cpp 
+               -o obj/Release/TestBCAstar.o
+
+g++-4.1 -Wall -O2 -Wall -I/home/nobody/LEDA-6/incl -c AStarBi.cpp 
+               -o obj/Release/AStarBi.o
+               
+g++-4.1 -Wall -O2 -Wall -I/home/nobody/LEDA-6/incl -c loadData.cpp 
+               -o obj/Release/loadData.o
+
+g++-4.1 -L/usr/lib -o bin/Release/TestBCAstar obj/Release/AStarBi.o 
+               obj/Release/loadData.o obj/Release/TestBCAstar.o 
+               -s /home/nobody/LEDA-6/libleda.a /usr/lib/libpq.so /usr/lib/libxmlrpc++.so
+\end{lstlisting}
+
+	Ensuite, nous pouvons utiliser la commande nohup qui permet de lancer un processus qui restera actif même après la déconnexion de l'utilisateur l'ayant initiée. Par exemple, nous sommes dans le repertoire "/bin/Release", nous pouvons utiliser la commande suivante pour lancer notre serveur.
+	
+\begin{lstlisting}
+$ nohup ./TestBCAstar &
+\end{lstlisting}
+
+

@@ -1,16 +1,52 @@
 \select@language {french}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Le site Géovélo}}{8}{figure.10}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Le diagramme de cas d'utilisation de Géovélo}}{9}{figure.12}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Le modèle de vos préférencea}}{12}{figure.19}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Le site Géovélo}}{10}{figure.10}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Le diagramme de cas d'utilisation de Géovélo}}{11}{figure.12}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Le modèle de vos préférencea}}{14}{figure.19}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Solutions entre les critères}}{14}{figure.30}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Exemple de l'algorithme de Dijkstra}}{16}{figure.41}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Résultat d'algorithme de Dijkstra}}{17}{figure.45}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Pareto frontier}}{18}{figure.50}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Relation de dominance}}{19}{figure.53}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Un graphe à traiter}}{19}{figure.58}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Algorithme de BCA*}}{20}{figure.60}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Solutions entre les critères}}{16}{figure.30}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Exemple de l'algorithme de Dijkstra}}{18}{figure.41}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Résultat d'algorithme de Dijkstra}}{19}{figure.45}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Pareto frontier}}{20}{figure.50}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Relation de dominance}}{21}{figure.53}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Un graphe à traiter}}{22}{figure.60}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Calcul de Heristique}}{23}{figure.63}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Distance de Tchebycheff}}{23}{figure.67}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Algorithme de BCA*}}{24}{figure.69}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Calcul de valeur de chaque critère}}{24}{figure.72}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Architecture principale de Géovélo}}{21}{figure.64}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Architecture du site Géovélo}}{22}{figure.66}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Architecture principale de Géovélo}}{26}{figure.75}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Tâches de chaque partie}}{27}{figure.77}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Etapes pour implémenter BCA*}}{30}{figure.119}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Zone originale de vos préférences}}{31}{figure.128}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Architecture du site Géovélo}}{32}{figure.130}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Zone modifiée de vos préférences}}{33}{figure.132}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Cas particuliers}}{33}{figure.134}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Calcul d'effort}}{37}{figure.265}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Zone d'effort}}{38}{figure.287}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Amélioration de l'algorithme}}{40}{figure.318}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Exemple d'un itinéraire}}{41}{figure.326}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Interface originale}}{44}{figure.356}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Interface améliorée}}{45}{figure.358}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Ajouter un serveur dans l'outil pgAdmin}}{51}{figure.393}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Linker settings dans l'outil codeblocs}}{53}{figure.406}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Search directories dans l'outil codeblocs}}{53}{figure.408}
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Complier and debugger settings}}{54}{figure.410}
+\contentsline {figure}{\numberline {B.5}{\ignorespaces ServerXmlRpc}}{54}{figure.412}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {E.1}{\ignorespaces Le site Géovélo}}{59}{figure.437}
+\contentsline {figure}{\numberline {E.2}{\ignorespaces Le diagrammes de cas d'utilisation de Géovélo}}{60}{figure.439}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {F.1}{\ignorespaces L'architecture principale de Géovélo}}{62}{figure.444}
+\contentsline {figure}{\numberline {F.2}{\ignorespaces L'architecture du site Géovélo}}{63}{figure.446}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {G.1}{\ignorespaces Le modèle de vos préférence}}{64}{figure.450}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {I.1}{\ignorespaces Diagramme de gantt du projet}}{71}{figure.491}
+\contentsline {figure}{\numberline {I.2}{\ignorespaces Diagramme de gantt du projet}}{72}{figure.493}

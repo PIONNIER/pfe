@@ -1,0 +1,28 @@
+\begin{tikzpicture}[scale=1.5]
+    % Draw axes
+    \draw [<->,thick] (0,4) node (yaxis) [left] {crit\`ere 2}
+        |- (4,0) node (xaxis) [below] {crit\`ere 1};
+    % Draw two intersecting lines
+    %\draw (0,0) coordinate (a_1) -- (2,1.8) coordinate (a_2);
+    %\draw (0,1.5) coordinate (b_1) -- (2.5,0) coordinate (b_2);
+    % Calculate the intersection of the lines a_1 -- a_2 and b_1 -- b_2
+    % and store the coordinate in c.
+    %\coordinate (c) at (intersection of a_1--a_2 and b_1--b_2);
+    \coordinate (a) at (1.1,1.6);
+    \coordinate (b) at (1.1,0.2);
+    \coordinate (c) at (2.5,0.2);
+    % Draw lines indicating intersection with y and x axis. Here we use
+    % the perpendicular coordinate system
+    \draw[loosely dotted] (yaxis |- a) node[left] {$160$}
+        -| (xaxis -| a) node[below] {$110$};
+    \draw[loosely dotted] (yaxis |- b) node[left] {$20$}
+        -| (xaxis -| b) node[below] {$110$};
+    \draw[loosely dotted] (yaxis |- c) node[left] {$20$}
+        -| (xaxis -| c) node[below] {$250$};
+    % Draw a dot to indicate intersection point
+    \draw[red, thick,rounded corners=10pt] (1,1.5)--(1.2,1.7);
+    \draw[red, thick,rounded corners=10pt] (1,1.7)--(1.2,1.5);    
+    \draw[red] (b) circle (1.5pt);
+    \draw[red, thick,rounded corners=10pt] (2.4,0.1)--(2.6,0.3);
+    \draw[red, thick,rounded corners=10pt] (2.4,0.3)--(2.6,0.1);    
+\end{tikzpicture}

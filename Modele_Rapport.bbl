@@ -1,0 +1,31 @@
+\begin{thebibliography}{SW91}
+
+\bibitem[Dij59]{Dijkstra1959}
+E.W. \bgroup\sc Dijkstra\egroup{}.
+\newblock << Two problems in connection with graphs >>.
+\newblock {\em Numerische Mathematik}, 269--271, 1959.
+
+\bibitem[FP00]{FP2000}
+M.~\bgroup\sc Futtersack\egroup{} et P.~\bgroup\sc Perny\egroup{}.
+\newblock << Une g{\'e}n{\'e}ralisation d'A* pour la recherche de solutions de
+  compromis dans des probl{\`e}mes d'optimisation multi-objectifs >>.
+\newblock {\em In Actes de la conf{\'e}rence RFIA 2000}, 3:377--386, 2000.
+
+\bibitem[SW91]{SW1991}
+B.~S. \bgroup\sc Stewart\egroup{} et C.C. \bgroup\sc White\egroup{}.
+\newblock Multiobjective A*.
+\newblock The Association for Computing Machinery, 1991.
+
+\bibitem[Wika]{MO}
+\bgroup\sc Wikipedia\egroup{}.
+\newblock Multiobjective optimization [online].
+\newblock Disponible sur :
+  \url{http://en.wikipedia.org/wiki/Multiobjective_optimization}.
+
+\bibitem[Wikb]{PE}
+\bgroup\sc Wikipedia\egroup{}.
+\newblock Pareto efficiency [online].
+\newblock Disponible sur :
+  \url{http://en.wikipedia.org/wiki/Pareto_efficiency}.
+
+\end{thebibliography}

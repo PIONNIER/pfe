@@ -1,35 +1,106 @@
 \select@language {french}
-\contentsline {chapter}{\numberline {1}Présentation du projet}{8}{chapter.6}
-\contentsline {section}{\numberline {1.1}Contexte}{8}{section.7}
-\contentsline {section}{\numberline {1.2}Description de l'existant}{8}{section.8}
-\contentsline {section}{\numberline {1.3}Objectifs du projet}{10}{section.13}
-\contentsline {section}{\numberline {1.4}Définition des Besoins}{10}{section.14}
-\contentsline {subsection}{\numberline {1.4.1}Besoins fonctionnels}{10}{subsection.15}
-\contentsline {subsection}{\numberline {1.4.2}Besoins non fonctionnels}{12}{subsection.20}
-\contentsline {section}{\numberline {1.5}Environnement du projet}{12}{section.21}
-\contentsline {section}{\numberline {1.6}Présentation du contexte technique}{12}{section.22}
-\contentsline {subsection}{\numberline {1.6.1}Client}{12}{subsection.23}
-\contentsline {subsection}{\numberline {1.6.2}Serveur}{13}{subsection.24}
-\contentsline {subsection}{\numberline {1.6.3}XML-RPC}{13}{subsection.25}
-\contentsline {subsection}{\numberline {1.6.4}Base de données}{13}{subsection.26}
-\contentsline {chapter}{\numberline {2}Méthodes}{14}{chapter.27}
-\contentsline {section}{\numberline {2.1}Présentation du problème}{14}{section.28}
-\contentsline {section}{\numberline {2.2}Méthodes utilisées}{15}{section.33}
-\contentsline {subsection}{\numberline {2.2.1}Algorithme de Dijkstra}{15}{subsection.34}
-\contentsline {subsubsection}{Principe de l'algorithme de Dijkstra}{15}{section*.35}
-\contentsline {subsubsection}{Exemple de l'algorithme de Dijkstra}{16}{section*.39}
-\contentsline {subsection}{\numberline {2.2.2}Optimisation multi-objectif}{17}{subsection.46}
-\contentsline {subsubsection}{Définition : Problème multi-objectif}{17}{section*.47}
-\contentsline {subsubsection}{Définition : Pareto efficiency}{17}{section*.48}
-\contentsline {subsubsection}{Définition : Relation de dominance}{18}{section*.51}
-\contentsline {subsection}{\numberline {2.2.3}Algorithme de BCA*}{19}{subsection.54}
-\contentsline {subsubsection}{Principe de l'algorithme de BCA*}{19}{section*.55}
-\contentsline {subsubsection}{Exemple de l'algorithme de BCA*}{19}{section*.56}
-\contentsline {chapter}{\numberline {3}Réalisation des besoins}{21}{chapter.61}
-\contentsline {section}{\numberline {3.1}Implémentation de l'algorithme BCA*}{21}{section.62}
-\contentsline {section}{\numberline {3.2}Implémentation des nouveaux critères}{22}{section.67}
-\contentsline {subsection}{\numberline {3.2.1}Base de données}{22}{subsection.68}
-\contentsline {subsubsection}{Présentation de la base de données}{22}{section*.69}
-\contentsline {subsubsection}{Réalisation de la base de données}{25}{section*.171}
-\contentsline {section}{\numberline {3.3}Modification de l'interface}{25}{section.172}
-\contentsline {section}{\numberline {3.4}Test d'intégration de site Géovélo}{26}{section.173}
+\contentsline {chapter}{\numberline {1}Présentation du projet}{10}{chapter.6}
+\contentsline {section}{\numberline {1.1}Contexte}{10}{section.7}
+\contentsline {section}{\numberline {1.2}Description de l'existant}{10}{section.8}
+\contentsline {section}{\numberline {1.3}Objectifs du projet}{12}{section.13}
+\contentsline {section}{\numberline {1.4}Définition des Besoins}{12}{section.14}
+\contentsline {subsection}{\numberline {1.4.1}Besoins fonctionnels}{12}{subsection.15}
+\contentsline {subsection}{\numberline {1.4.2}Besoins non fonctionnels}{14}{subsection.20}
+\contentsline {section}{\numberline {1.5}Environnement du projet}{14}{section.21}
+\contentsline {section}{\numberline {1.6}Présentation du contexte technique}{14}{section.22}
+\contentsline {subsection}{\numberline {1.6.1}Client}{15}{subsection.23}
+\contentsline {subsection}{\numberline {1.6.2}Serveur}{15}{subsection.24}
+\contentsline {subsection}{\numberline {1.6.3}XML-RPC}{15}{subsection.25}
+\contentsline {subsection}{\numberline {1.6.4}Base de données}{15}{subsection.26}
+\contentsline {chapter}{\numberline {2}Méthodes}{16}{chapter.27}
+\contentsline {section}{\numberline {2.1}Présentation du problème}{16}{section.28}
+\contentsline {section}{\numberline {2.2}Méthodes utilisées}{17}{section.33}
+\contentsline {subsection}{\numberline {2.2.1}Algorithme de Dijkstra}{17}{subsection.34}
+\contentsline {subsubsection}{Principe de l'algorithme de Dijkstra}{17}{section*.35}
+\contentsline {subsubsection}{Exemple de l'algorithme de Dijkstra}{18}{section*.39}
+\contentsline {subsection}{\numberline {2.2.2}Optimisation multi-objectif}{19}{subsection.46}
+\contentsline {subsubsection}{Définition : Problème multi-objectif}{19}{section*.47}
+\contentsline {subsubsection}{Définition : Pareto efficiency}{19}{section*.48}
+\contentsline {subsubsection}{Définition : Relation de dominance}{20}{section*.51}
+\contentsline {subsection}{\numberline {2.2.3}Algorithme de BCA*}{21}{subsection.54}
+\contentsline {subsubsection}{Principe de l'algorithme de BCA*}{21}{section*.55}
+\contentsline {subsubsection}{Exemple de l'algorithme de BCA*}{22}{section*.58}
+\contentsline {chapter}{\numberline {3}Réalisation des besoins}{26}{chapter.73}
+\contentsline {section}{\numberline {3.1}Implémentation de l'algorithme BCA*}{27}{section.78}
+\contentsline {subsection}{\numberline {3.1.1}Structure de données}{27}{subsection.79}
+\contentsline {subsection}{\numberline {3.1.2}Réalisation}{28}{subsection.116}
+\contentsline {subsubsection}{Partie de Serveur}{29}{section*.117}
+\contentsline {subsubsection}{Partie de Web Page}{31}{section*.126}
+\contentsline {section}{\numberline {3.2}Implémentation des nouveaux critères}{33}{section.135}
+\contentsline {subsection}{\numberline {3.2.1}Structure de la base de données}{33}{subsection.136}
+\contentsline {subsection}{\numberline {3.2.2}Réalisation de critère d'effort}{36}{subsection.254}
+\contentsline {subsubsection}{Partie de Database}{36}{section*.255}
+\contentsline {subsubsection}{Partie de Serveur}{38}{section*.284}
+\contentsline {subsubsection}{Partie de Web Page}{38}{section*.285}
+\contentsline {subsection}{\numberline {3.2.3}Réalisation de critère de sécurité}{39}{subsection.288}
+\contentsline {subsubsection}{Partie de Database}{39}{section*.289}
+\contentsline {subsubsection}{Partie de Serveur}{39}{section*.296}
+\contentsline {section}{\numberline {3.3}Amélioration}{39}{section.315}
+\contentsline {subsection}{\numberline {3.3.1}Amélioration de l'algorithme}{39}{subsection.316}
+\contentsline {subsection}{\numberline {3.3.2}Amélioration de temps du calcul}{41}{subsection.324}
+\contentsline {section}{\numberline {3.4}Modification de l'interface}{44}{section.354}
+\contentsline {chapter}{\numberline {4}Conclusion}{46}{chapter.359}
+\contentsline {chapter}{\numberline {A}Résultat de tests de valeur $\varepsilon $ différent}{47}{appendix.360}
+\contentsline {chapter}{\numberline {B}Guide - Installation et configuration}{50}{appendix.367}
+\contentsline {section}{\numberline {B.1}Installation des packages nécessaires}{50}{section.368}
+\contentsline {section}{\numberline {B.2}Configuration de la base de données}{50}{section.369}
+\contentsline {section}{\numberline {B.3}Configuration du site web Géovélo}{52}{section.394}
+\contentsline {section}{\numberline {B.4}Configuration de LEDA}{52}{section.402}
+\contentsline {chapter}{\numberline {C}Cahier des Charges - Introduction}{56}{appendix.428}
+\contentsline {chapter}{\numberline {D}Contexte de la réalisation}{57}{appendix.429}
+\contentsline {section}{\numberline {D.1}Contexte}{57}{section.430}
+\contentsline {section}{\numberline {D.2}Objectifs}{57}{section.431}
+\contentsline {chapter}{\numberline {E}Description générale}{58}{appendix.432}
+\contentsline {section}{\numberline {E.1}Environnement du projet}{58}{section.433}
+\contentsline {section}{\numberline {E.2}Caractéristiques des utilisateurs}{58}{section.434}
+\contentsline {section}{\numberline {E.3}Fonctionnalités et structure générale du système}{59}{section.435}
+\contentsline {section}{\numberline {E.4}Contraintes de développement, d'exploitation et de maintenance}{60}{section.440}
+\contentsline {subsubsection}{Contraintes de développement}{60}{section*.441}
+\contentsline {chapter}{\numberline {F}Architecture générale du système}{62}{appendix.442}
+\contentsline {chapter}{\numberline {G}Description des Besoins}{64}{appendix.447}
+\contentsline {section}{\numberline {G.1}Besoins fonctionnels}{64}{section.448}
+\contentsline {section}{\numberline {G.2}Besoins non fonctionnels}{65}{section.451}
+\contentsline {chapter}{\numberline {H}Découpage du projet en tâches}{66}{appendix.452}
+\contentsline {section}{\numberline {H.1}Tâche 1 : La familiarisation avec les algorithmes}{66}{section.453}
+\contentsline {subsubsection}{Description de la tâche}{66}{section*.454}
+\contentsline {subsubsection}{Estimation de charge}{66}{section*.455}
+\contentsline {section}{\numberline {H.2}Tâche 2 : La familiarisation de le fonctionnement de Géovélo}{66}{section.456}
+\contentsline {subsubsection}{Description de la tâche}{66}{section*.457}
+\contentsline {subsubsection}{Estimation de charge}{66}{section*.458}
+\contentsline {section}{\numberline {H.3}Tâche 3 : Configuration de l'environnement}{67}{section.459}
+\contentsline {subsubsection}{Description de la tâche}{67}{section*.460}
+\contentsline {subsubsection}{Estimation de charge}{67}{section*.461}
+\contentsline {section}{\numberline {H.4}Tâche 4 : Rédaction du guide}{67}{section.462}
+\contentsline {subsubsection}{Description de la tâche}{67}{section*.463}
+\contentsline {subsubsection}{Estimation de charge}{67}{section*.464}
+\contentsline {section}{\numberline {H.5}Tâche 5 : Étude de l'existant}{67}{section.465}
+\contentsline {subsubsection}{Description de la tâche}{67}{section*.466}
+\contentsline {subsubsection}{Estimation de charge}{67}{section*.467}
+\contentsline {section}{\numberline {H.6}Tâche 6 : Implémentation du nouvel algorithme}{67}{section.468}
+\contentsline {subsubsection}{Description de la tâche}{67}{section*.469}
+\contentsline {subsubsection}{Estimation de charge}{67}{section*.470}
+\contentsline {section}{\numberline {H.7}Tâche 7 : Prise en main PostGIS}{67}{section.471}
+\contentsline {subsubsection}{Description de la tâche}{67}{section*.472}
+\contentsline {subsubsection}{Estimation de charge}{68}{section*.473}
+\contentsline {section}{\numberline {H.8}Tâche 8 : Modéliser les critères}{68}{section.474}
+\contentsline {subsubsection}{Description de la tâche}{68}{section*.475}
+\contentsline {subsubsection}{Estimation de charge}{68}{section*.476}
+\contentsline {section}{\numberline {H.9}Tâche 9 : Implémentation des nouveaux critères}{68}{section.477}
+\contentsline {subsubsection}{Description de la tâche}{68}{section*.478}
+\contentsline {subsubsection}{Estimation de charge}{68}{section*.479}
+\contentsline {section}{\numberline {H.10}Tâche 10 : Prise en main AJAX}{68}{section.480}
+\contentsline {subsubsection}{Description de la tâche}{68}{section*.481}
+\contentsline {subsubsection}{Estimation de charge}{68}{section*.482}
+\contentsline {section}{\numberline {H.11}Tâche 11 : Modification de l'interface du site web}{68}{section.483}
+\contentsline {subsubsection}{Description de la tâche}{68}{section*.484}
+\contentsline {subsubsection}{Estimation de charge}{68}{section*.485}
+\contentsline {section}{\numberline {H.12}Tâche 12 : Rédaction du rapport}{69}{section.486}
+\contentsline {subsubsection}{Description de la tâche}{69}{section*.487}
+\contentsline {subsubsection}{Estimation de charge}{69}{section*.488}
+\contentsline {chapter}{\numberline {I}Planning}{70}{appendix.489}
+\contentsline {chapter}{Bibliographie}{73}{figure.493}

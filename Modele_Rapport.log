@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2010.2.26)  31 MAR 2010 09:44
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2010.2.26)  18 APR 2010 12:43
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -666,31 +666,52 @@ Package microtype Info: Loading configuration file microtype.cfg.
 (/usr/local/texlive/2009/texmf-dist/tex/latex/microtype/microtype.cfg
 File: microtype.cfg 2010/01/10 v2.4 microtype main configuration file (RS)
 ))
-(./Modele_Rapport.aux)
+(./Modele_Rapport.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `fig:Le site Géovélo' multiply defined.
+
+
+LaTeX Warning: Label `fig:Diagramme de gantt du projet' multiply defined.
+
+)
 \openout1 = `Modele_Rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 57.
-
-(/usr/local/texlive/2009/texmf-dist/tex/latex/lm/t1lmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 58.
+ (/usr/local/texlive/2009/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Info: Redefining \degres on input line 57.
-LaTeX Info: Redefining \dots on input line 57.
-LaTeX Info: Redefining \up on input line 57.
+LaTeX Info: Redefining \degres on input line 58.
+LaTeX Info: Redefining \dots on input line 58.
+LaTeX Info: Redefining \up on input line 58.
 
 (/usr/local/texlive/2009/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -705,7 +726,7 @@ LaTeX Info: Redefining \up on input line 57.
 \MPnumerator=\count146
 \everyMPtoPDFconversion=\toks29
 )
-Package hyperref Info: Link coloring ON on input line 57.
+Package hyperref Info: Link coloring ON on input line 58.
  (/usr/local/texlive/2009/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/01/25 v2.36 Cross-referencing by name of section
 
@@ -717,15 +738,15 @@ Package: gettitlestring 2009/12/18 v1.3 Cleanup title references (HO)
 )
 \c@section@level=\count147
 )
-LaTeX Info: Redefining \ref on input line 57.
-LaTeX Info: Redefining \pageref on input line 57.
+LaTeX Info: Redefining \ref on input line 58.
+LaTeX Info: Redefining \pageref on input line 58.
 
 (./Modele_Rapport.out) (./Modele_Rapport.out)
 \@outlinefile=\write5
 \openout5 = `Modele_Rapport.out'.
 
 \AtBeginShipoutBox=\box40
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 57.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 58.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -733,12 +754,12 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 File: logos/Logo_Polytech_Tours.pdf Graphic file (type pdf)
 
 <use logos/Logo_Polytech_Tours.pdf>
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 57.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 58.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<geovelo.pdf, id=108, 289.08pt x 149.55875pt>
+<geovelo.pdf, id=272, 289.08pt x 149.55875pt>
 File: geovelo.pdf Graphic file (type pdf)
  <use geovelo.pdf> [1
 
@@ -770,28 +791,28 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 3.
-)
+ [3
+
+])
 \tf@toc=\write6
 \openout6 = `Modele_Rapport.toc'.
 
- [3
-
-]
+ [4]
 (./Modele_Rapport.lof)
 \tf@lof=\write7
 \openout7 = `Modele_Rapport.lof'.
 
- [4
+ [5
 
-] (./Modele_Rapport.lot)
+] [6] (./Modele_Rapport.lot)
 \tf@lot=\write8
 \openout8 = `Modele_Rapport.lot'.
 
- [5
+ [7
 
 ]
 \c@lstlisting=\count148
-LaTeX Info: Redefining \microtypecontext on input line 57.
+LaTeX Info: Redefining \microtypecontext on input line 58.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -811,28 +832,572 @@ File: mt-cmr.cfg 2009/11/09 v2.0 microtype config. file: Computer Modern Roman
 (RS)
 )
 pdfTeX warning (font expansion): font should be expanded before its first use
-[6
+[8
 
-] [7
+] [9
 
 ]
 Chapitre 1.
 
 LaTeX Font Warning: Font shape `T1/lmss/m/sc' in size <10.95> not available
-(Font)              Font shape `T1/lmr/m/sc' tried instead on input line 84.
+(Font)              Font shape `T1/lmr/m/sc' tried instead on input line 81.
 
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-<images/Site.png, id=222, 1079.53313pt x 552.56438pt>
+<images/Site.png, id=497, 1079.53313pt x 552.56438pt>
 File: images/Site.png Graphic file (type png)
  <use images/Site.png>
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
+
+ []
+
+[10
+
+ <./images/Site.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+
+ []
+
+<images/usecase.png, id=507, 534.99875pt x 797.98125pt>
+File: images/usecase.png Graphic file (type png)
+
+<use images/usecase.png>
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+
+ []
+
+
+Underfull \vbox (badness 1365) has occurred while \output is active []
+
+ [11 <./images/usecase.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
+
+ []
+
+<Images/preferences.pdf, id=522, 378.41376pt x 195.73125pt>
+File: Images/preferences.pdf Graphic file (type pdf)
+
+<use Images/preferences.pdf> [13]
+Underfull \hbox (badness 10000) in paragraph at lines 264--265
+
+ []
+
+[14 <./Images/preferences.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--292
+
+ []
+
+[15]
+Chapitre 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
+
+ []
+
+(./Schemas/bicritere.tex) [16
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 355--356
+
+ []
+
+[17]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 360.
+ (./Schemas/dijkstra1.tex) [18] (./Schemas/dijkstra2.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 436--437
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 440--441
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 444--445
+
+ []
+
+[19] <Schemas/front_pareto.pdf, id=644, 511.9125pt x 318.18875pt>
+File: Schemas/front_pareto.pdf Graphic file (type pdf)
+
+<use Schemas/front_pareto.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 467--468
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 474--475
+
+ []
+
+[20 <./Schemas/front_pareto.pdf>]
+<Schemas/dominance.pdf, id=756, 524.96124pt x 318.18875pt>
+File: Schemas/dominance.pdf Graphic file (type pdf)
+
+<use Schemas/dominance.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 494--495
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 508--510
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--516
+
+ []
+
+[21 <./Schemas/dominance.pdf>]
+<Schemas/traiter.pdf, id=865, 386.44376pt x 242.9075pt>
+File: Schemas/traiter.pdf Graphic file (type pdf)
+
+<use Schemas/traiter.pdf> [22 <./Schemas/traiter.pdf>]
+<Schemas/solution.pdf, id=887, 469.755pt x 321.2pt>
+File: Schemas/solution.pdf Graphic file (type pdf)
+ <use Schemas/solution.pdf>
+(./Schemas/Tchebycheff.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 617--618
+
+ []
+
+[23 <./Schemas/solution.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 630--631
+
+ []
+
+<Schemas/solution2.pdf, id=922, 469.755pt x 321.2pt>
+File: Schemas/solution2.pdf Graphic file (type pdf)
+
+<use Schemas/solution2.pdf>
+<Schemas/formule.pdf, id=923, 507.8975pt x 190.7125pt>
+File: Schemas/formule.pdf Graphic file (type pdf)
+
+<use Schemas/formule.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 655--656
+
+ []
+
+[24 <./Schemas/solution2.pdf> <./Schemas/formule.pdf>] [25]
+Chapitre 3.
+<Schemas/archi.pdf, id=974, 374.39874pt x 357.335pt>
+File: Schemas/archi.pdf Graphic file (type pdf)
+ <use Schemas/archi.pdf>
+[26
+
+ <./Schemas/archi.pdf>]
+<Schemas/archi1.pdf, id=1058, 496.85625pt x 357.335pt>
+File: Schemas/archi1.pdf Graphic file (type pdf)
+
+<use Schemas/archi1.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 704--705
+
+ []
+
+(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+)
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <9> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 718.
+ [27 <./Schemas/archi1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 763--764
+
+ []
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 803--804
+
+ []
+
+[29] <Schemas/flowchart.pdf, id=1194, 371.3875pt x 780.9175pt>
+File: Schemas/flowchart.pdf Graphic file (type pdf)
+
+<use Schemas/flowchart.pdf> [30 <./Schemas/flowchart.pdf>]
+<images/zone1.png, id=1312, 1439.3775pt x 736.7525pt>
+File: images/zone1.png Graphic file (type png)
+ <use images/zone1.png>
+[31 <./images/zone1.png>]
+<Schemas/site.pdf, id=1327, 552.0625pt x 534.99875pt>
+File: Schemas/site.pdf Graphic file (type pdf)
+ <use Schemas/site.pdf>
+Underfull \hbox (badness 10000) in paragraph at lines 878--879
+
+ []
+
+[32 <./Schemas/site.pdf>]
+<images/zone2.png, id=1493, 1000.73875pt x 631.35875pt>
+File: images/zone2.png Graphic file (type png)
+ <use images/zone2.png>
+<images/zone3.png, id=1494, 497.6994pt x 95.3964pt>
+File: images/zone3.png Graphic file (type png)
+ <use images/zone3.png>
+Underfull \hbox (badness 10000) in paragraph at lines 909--910
+
+ []
+
+[33 <./images/zone2.png> <./images/zone3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 918--919
+
+ []
+
+(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+Underfull \hbox (badness 10000) in paragraph at lines 950--951
+
+ []
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 992--993
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1032--1033
+
+ []
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 1052--1053
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1068--1069
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1090--1091
+
+ []
+
+[36] <Schemas/effort.pdf, id=1638, 714.67pt x 453.695pt>
+File: Schemas/effort.pdf Graphic file (type pdf)
+
+<use Schemas/effort.pdf> [37 <./Schemas/effort.pdf>]
+<images/zone4.png, id=1719, 1003.75pt x 648.4225pt>
+File: images/zone4.png Graphic file (type png)
+ <use images/zone4.png>
+[38 <./images/zone4.png>] [39]
+<Schemas/flowchart2.pdf, id=1763, 415.5525pt x 590.205pt>
+File: Schemas/flowchart2.pdf Graphic file (type pdf)
+
+<use Schemas/flowchart2.pdf>
+<images/temps1.png, id=1764, 458.71375pt x 311.1625pt>
+File: images/temps1.png Graphic file (type png)
+ <use images/temps1.png>
+Underfull \vbox (badness 1178) has occurred while \output is active []
+
+ [40 <./Schemas/flowchart2.pdf>]
+Overfull \hbox (2.34898pt too wide) in paragraph at lines 1243--1244
+[]\T1/lmss/m/n/10.95 (-20) Pour évi-ter ce pro-blème, une idée est de mo-di-fie
+r la pa-ra-mètre $\OML/lmm/m/it/10.95 "$ \T1/lmss/m/n/10.95 (-20) qui sont dans
+ la fonc-tion \T1/lmtt/m/n/10.95 testDomination\T1/lmss/m/n/10.95 (-20) .
+ []
+
+[41 <./images/temps1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1267--1268
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1295--1296
+
+ []
+
+[42]
+Overfull \hbox (20.34099pt too wide) in paragraph at lines 1329--1352
+[][]
+ []
+
+[43] <images/zoneoriginale.png, id=1911, 1004.75375pt x 632.3625pt>
+File: images/zoneoriginale.png Graphic file (type png)
+
+<use images/zoneoriginale.png> [44 <./images/zoneoriginale.png>]
+<images/zone5.png, id=1918, 1437.37pt x 738.76pt>
+File: images/zone5.png Graphic file (type png)
+ <use images/zone5.png>
+Overfull \hbox (19.39018pt too wide) in paragraph at lines 1388--1389
+ [][] 
+ []
+
+[45 <./images/zone5.png>]
+Chapitre 4.
+(./src-test.tex [46
+
+]
+Annexe A.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\varepsilon' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1.
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <24.88> on input line 1.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <20.74> on input line 1.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <17.28> on input line 1.
+
+pdfTeX warning (font expansion): font should be expanded before its first use
+
+Overfull \hbox (15.79347pt too wide) in paragraph at lines 5--28
+[][]
+ []
+
+[47
+
+]
+Overfull \hbox (15.79347pt too wide) in paragraph at lines 36--59
+[][]
+ []
+
+[48]
+Overfull \hbox (15.79347pt too wide) in paragraph at lines 67--90
+[][]
+ []
+
+) (./src-conf.tex [49]
+Annexe B.
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--34
+
+ []
+
+[50
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+
+ []
+
+<images/pdAdmin.png, id=1962, 350.05782pt x 392.96812pt>
+File: images/pdAdmin.png Graphic file (type png)
+
+<use images/pdAdmin.png>
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
+
+ []
+
+[51 <./images/pdAdmin.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+
+ []
+
+[52] <images/Linker_settings.png, id=1991, 828.84656pt x 452.4403pt>
+File: images/Linker_settings.png Graphic file (type png)
+
+<use images/Linker_settings.png>
+Overfull \hbox (13.61491pt too wide) in paragraph at lines 142--143
+ [][] 
+ []
+
+<images/Search_directories.png, id=1992, 825.83531pt x 449.42906pt>
+File: images/Search_directories.png Graphic file (type png)
+
+<use images/Search_directories.png>
+Overfull \hbox (11.80815pt too wide) in paragraph at lines 149--150
+ [][] 
+ []
+
+[53 <./images/Linker_settings.png (PNG copy)> <./images/Search_directories.png 
+(PNG copy)>] <images/settings.png, id=1999, 732.7375pt x 672.5125pt>
+File: images/settings.png Graphic file (type png)
+
+<use images/settings.png>
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
+
+ []
+
+<images/ServerXmlRpc.png, id=2000, 372.64218pt x 261.22594pt>
+File: images/ServerXmlRpc.png Graphic file (type png)
+
+<use images/ServerXmlRpc.png> [54 <./images/settings.png (PNG copy)> <./images/
+ServerXmlRpc.png (PNG copy)>]) (./src-cdc.tex [55]
+Annexe C.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+[56
+
+]
+Annexe D.
+[57
+
+]
+Annexe E.
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+[58
+
+] <images/2_1_1.png, id=2040, 1079.53313pt x 552.56438pt>
+File: images/2_1_1.png Graphic file (type png)
+
+<use images/2_1_1.png>
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
+
+ []
+
+[59 <./images/2_1_1.png>]
+<images/UseCase.png, id=2047, 534.99875pt x 797.98125pt>
+File: images/UseCase.png Graphic file (type png)
+
+<use images/UseCase.png>
+Overfull \hbox (2.85425pt too wide) in paragraph at lines 94--94
+[]\T1/lmr/bx/n/14.4 Contraintes de dé-ve-lop-pe-ment, d'ex-ploi-ta-tion et de m
+ain-te-nance 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
 
  []
 
@@ -841,41 +1406,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
  []
 
-[8
-
- <./images/Site.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
-
- []
-
-<images/usecase.pdf, id=232, 571.13374pt x 799.98875pt>
-File: images/usecase.pdf Graphic file (type pdf)
-
-<use images/usecase.pdf>
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
+[60 <./images/UseCase.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
 
-Underfull \vbox (badness 1163) has occurred while \output is active []
-
- [9 <./images/usecase.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--143
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
+
+ []
+
+[61]
+Annexe F.
+<images/2_3_1.png, id=2060, 401.24907pt x 287.57437pt>
+File: images/2_3_1.png Graphic file (type png)
+ <use images/2_3_1.png>
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+
+ []
+
+[62
+
+ <./images/2_3_1.png (PNG copy)>]
+<images/2_3_2.png, id=2066, 470.50781pt x 387.69844pt>
+File: images/2_3_2.png Graphic file (type png)
+ <use images/2_3_2.png>
 Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
  []
 
@@ -885,7 +1471,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 148--149
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--160
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--152
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
+
+ []
+
+[63 <./images/2_3_2.png (PNG copy)>]
+Annexe G.
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
 
  []
 
@@ -894,241 +1502,106 @@ Underfull \hbox (badness 10000) in paragraph at lines 166--167
 
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 170--171
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
+<images/3_1_1.png, id=2072, 517.18219pt x 337.26pt>
+File: images/3_1_1.png Graphic file (type png)
+ <use images/3_1_1.png>
+[64
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--209
+ <./images/3_1_1.png (PNG copy)>] [65]
+Annexe H.
 
- []
+LaTeX Warning: Citation `Zhang2009' on page 66 undefined on input line 223.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
-
- []
-
-<Images/preferences.pdf, id=313, 378.41376pt x 195.73125pt>
-File: Images/preferences.pdf Graphic file (type pdf)
-
-<use Images/preferences.pdf> [11]
-Underfull \hbox (badness 10000) in paragraph at lines 263--264
-
- []
-
-[12 <./Images/preferences.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 265--266
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 290--291
-
- []
-
-[13]
-Chapitre 2.
-
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
-
- []
-
-(./Schemas/bicritere.tex) [14
+[66
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 
  []
 
-[15]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 359.
- (./Schemas/dijkstra1.tex) [16] (./Schemas/dijkstra2.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 435--436
+[67] [68] [69]
+Annexe I.
+<images/1.pdf, id=2125, 597.23125pt x 845.1575pt>
+File: images/1.pdf Graphic file (type pdf)
+ <use images/1.pdf>
 
- []
+LaTeX Warning: Float too large for page by 18.98984pt on input line 298.
 
+[70
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--440
+] <images/2.pdf, id=2130, 597.23125pt x 845.1575pt>
+File: images/2.pdf Graphic file (type pdf)
+ <use images/2.pdf>
 
- []
+LaTeX Warning: Float too large for page by 18.98984pt on input line 307.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 441--442
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
-
- []
-
-[17] <Schemas/front_pareto.pdf, id=435, 511.9125pt x 318.18875pt>
-File: Schemas/front_pareto.pdf Graphic file (type pdf)
-
-<use Schemas/front_pareto.pdf>
-Underfull \hbox (badness 10000) in paragraph at lines 466--467
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 473--474
-
- []
-
-[18 <./Schemas/front_pareto.pdf>]
-<Schemas/dominance.pdf, id=547, 524.96124pt x 318.18875pt>
-File: Schemas/dominance.pdf Graphic file (type pdf)
-
-<use Schemas/dominance.pdf>
-Underfull \hbox (badness 10000) in paragraph at lines 493--494
-
- []
-
-<Schemas/traiter.pdf, id=549, 386.44376pt x 242.9075pt>
-File: Schemas/traiter.pdf Graphic file (type pdf)
-
-<use Schemas/traiter.pdf> <Schemas/solution.pdf, id=550, 469.755pt x 321.2pt>
-File: Schemas/solution.pdf Graphic file (type pdf)
-
-<use Schemas/solution.pdf> [19 <./Schemas/dominance.pdf> <./Schemas/traiter.pdf
->] [20 <./Schemas/solution.pdf>]
-Chapitre 3.
-<Schemas/archi.pdf, id=704, 374.39874pt x 357.335pt>
-File: Schemas/archi.pdf Graphic file (type pdf)
- <use Schemas/archi.pdf>
-<Schemas/site.pdf, id=705, 552.0625pt x 534.99875pt>
-File: Schemas/site.pdf Graphic file (type pdf)
- <use Schemas/site.pdf>
-[21
-
- <./Schemas/archi.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 620--621
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 633--634
-
- []
-
-[22 <./Schemas/site.pdf>]
-(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
+) (./Modele_Rapport.bbl [71 <./images/1.pdf>] [72 <./images/2.pdf>]
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 6.
 )
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <9> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 636.
-
-Underfull \hbox (badness 10000) in paragraph at lines 678--679
-
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 704--705
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 708--709
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 712--713
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 749--750
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 761--762
-
- []
-
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 766--767
-
- []
-
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 799--800
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 804--805
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 808--809
-
- []
-
-[26]
-Overfull \hbox (13.638pt too wide) in paragraph at lines 822--823
-[]\T1/lmss/m/n/10.95 (-20) Wikipedia, Mul-tiob-jec-tive op-ti-mi-za-tion, http:
-//en.wikipedia.org/wiki/Multiobjective_optimization. 
- []
-
-AED: lastpage setting LastPage [27
+AED: lastpage setting LastPage [73
 
 ] ( FP-DIV ) ( FP-TRUNC ) ( FP-MUL )
 ( FP-SUB ) ( FP-TRUNC ) ( FP-ZERO? )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 843.
- [28
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1468.
+ [74
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 843.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1468.
  (./Modele_Rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 843.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1468.
 Package rerunfilecheck Info: File `Modele_Rapport.out' has not changed.
-(rerunfilecheck)             Checksum: D8BC2C03E4EB3B0F9E45C4C04947CC04;1767.
+(rerunfilecheck)             Checksum: 6A8D2D1F360604A2FB406CC1941D6F8A;5065.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 16533 strings out of 493848
- 275753 string characters out of 3149207
- 571903 words of memory out of 3000000
- 19089 multiletter control sequences out of 15000+200000
- 73157 words of font info for 94 fonts, out of 3000000 for 9000
+ 17730 strings out of 493848
+ 292489 string characters out of 3149207
+ 578932 words of memory out of 3000000
+ 19804 multiletter control sequences out of 15000+200000
+ 93108 words of font info for 137 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 40i,15n,68p,810b,1283s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,15n,68p,1045b,1855s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
-texlive/2009/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2009/t
-exmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2009/texmf-dist/
-fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2009/texmf-dist/fonts/type
+texlive/2009/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
+09/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2009/texmf-dist/
+fonts/enc/dvips/lm/lm-mathsy.enc}</usr/local/texlive/2009/texmf-dist/fonts/type
 1/public/lm/lmbx10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/l
 m/lmbx12.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmcsc10.
 pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/
-local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texli
-ve/2009/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2009/tex
-mf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2009/texmf-dist/font
-s/type1/public/lm/lmss10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/pu
-blic/lm/lmss12.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lm
-ss8.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb>
-</usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/loca
-l/texlive/2009/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2
-009/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2009/texmf-
-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2009/texmf-dist/fonts
-/type1/public/lm/lmtt9.pfb>
-Output written on Modele_Rapport.pdf (28 pages, 1953859 bytes).
+local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texl
+ive/2009/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2009/te
+xmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2009/texmf-dist/fo
+nts/type1/public/lm/lmr8.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/pu
+blic/lm/lmss10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lm
+ss12.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmss8.pfb></
+usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/loca
+l/texlive/2009/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/local/texlive
+/2009/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2009/texm
+f-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2009/texmf-dist/font
+s/type1/public/lm/lmtk10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/pu
+blic/lm/lmtt10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/lm/lm
+tt9.pfb>
+Output written on Modele_Rapport.pdf (74 pages, 5755305 bytes).
 PDF statistics:
- 1197 PDF objects out of 1200 (max. 8388607)
- 215 named destinations out of 1000 (max. 500000)
- 21772 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 2712 PDF objects out of 2984 (max. 8388607)
+ 579 named destinations out of 1000 (max. 500000)
+ 33489 words of extra memory for PDF output out of 35830 (max. 10000000)
 

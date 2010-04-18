@@ -1,0 +1,309 @@
+
+% Chapter : Introduction
+\chapter{Cahier des Charges - Introduction}
+Lors de la cinquième année du cycle d'ingénieur de l'École Polytechnique de l'Université de Tours Département Informatique. Nous devons effectuer un Projet de Fin d'Étude (PFE) du 10/2009 au 5/2010. Le but est de familiariser les étudiants avec les compétences acquises en cours et d'en acquérir de nouvelles.\\
+	  
+Le sujet du projet est "Nouveaux critères pour du calcul d'itinéraire vélo". Ce projet est bas\'e sur des travaux de mon encadrant Ga\"el Sauvanet et l'étudiante Juan Zhang dans le cadre du projet Géovélo réalisé par l'association Autour du Train. La première étape de ce PFE est d'établir le cahier des charges pour délimiter la réalisation du projet.
+
+% Chapter : Contexte de la réalisation	
+\chapter{Contexte de la réalisation}
+% Section : Contexte
+\section{Contexte}
+Géovélo est un site qui permet de calculer des itinéraires adaptés au réseau cyclable. Nous pouvons choisir le départ et la destination. Entre les deux points Géovélo nous fournit des itinéraires en tenant compte de différents critères. L'utilisateur peut choisir un itinéraire selon ses préférences de distance et de sécurité. Géovélo est une première en France. L'interface cartographique est basée sur \textsc{API Google maps}. Pour l'instant, il n'est disponible que pour la ville de Tours.
+		
+\section{Objectifs}
+L'objectif du projet sera d'améliorer l'algorithme, nous allons mettre en place \textsc{BCA* Algorithm}\cite{FP2000} pour chercher des itinéraires plus rapidement. Et puis nous devrons implémenter les nouveaux critères avec l'aide de l'outil \textsc{PostGIS}. Selon le temps restant, nous devrons modifier l'interface du site web.
+
+L'algorithme de ce projet est développé en utilisant le plus court chemin (une version multi-critère de l'algorithme de Dijkstra). Évidement cet algorithme fonctionne bien mais il perd beaucoup de temps. Pour calculer un itinéraire entre le départ et la destination selon différents critères, il a besoin de trouver toutes les solutions au premier, et puis parmi les résultats il retient quelques itinéraires satisfaisants les besoins de l'utilisateur. Pour l'améliorer mon encadrant propose un nouveau algorithme: \textsc{BCA*} (une généralisation d'A* pour la cherche de solutions de compromis dans des problème d'optimisation multi-objectifs). C'est un algorithme qui est spécialement con\c{c}u pour la recherche de solutions de compromis. L'intérêt est que nous n'avons pas besoin de calculer tous les résultats, le mécanisme de \textsc{BCA*} permet d'enlever des points qui ne nous intéressent pas pour trouver une solution plus rapidement en réduisant l'espace de recherche.
+
+% Chapter : Description générale
+\chapter{Description générale}
+% Section : Environnement du projet
+\section{Environnement du projet}
+\label{sec:envprojet}
+Ce PFE est effectué sous le système d'exploitation Ubuntu8.\\
+		
+Le codage doit être réalisé en \textsc{C++}. Sous Ubuntu8, on installe l'outil codeblocks comme environnement de développement et les paquets concernant la librairie de communication \textsc{XMLRPC}.\\
+		
+On utilise \textsc{PostgreSQL} comme SGBD et son module géographique Postgis. On utilise l'outil \textsc{pgAdmin3} pour gérer la base de données et l'outil qgis pour visualiser et traiter les données géographiques.\\
+		
+On utilise le serveur \textsc{apache2} et son module \textsc{PHP5} comme serveur web.
+% Section : Caractéristiques des utilisateurs
+\section{Caractéristiques des utilisateurs}
+Le site Géovélo réalisé au cours de ce projet est destiné en premier lieu aux utilisateurs du site.\\
+
+Un utilisateur du site du Géovélo possède des caractéristiques:
+
+\begin{itemize}
+\item Connaissance ou non de l'informatique: Non;
+\item Expérience de l'application: Oui;
+\item Utilisateurs réguliers et/ou occasionnels: Occasionnel;
+\item Droits d'accès utilisateurs: Toues les droits sur le site Géovélo .
+\end{itemize}
+
+\newpage
+% Section : Fonctionnalités et structure générale du système
+\section{Fonctionnalités et structure générale du système}
+\label{sec:foncgales}
+
+\begin{figure}[!ht]
+\label{fig:Le site Géovélo}
+\centering
+\includegraphics[scale=0.4]{images/2_1_1.png}
+\caption{Le site Géovélo}
+\end{figure}
+
+L'image ci-dessus est triée du site web Géovélo actuel. Sur ce site, les fonctionnalités suivantes sont possibles:\\
+
+\textbf{Sélection d'un itinéraire \hspace{0.2cm}}
+
+Pour saisir un itinéraire, il existe 3 méthodes:
+\begin{itemize}
+\item Saisir une adresse de départ ou d'arrivée puis cliquer sur la loupe; 
+\item Déplacer les curseurs de départ et d'arrivée directement sur la carte  à l'aide de la souris; 
+\item Utiliser le clic droit de la souris sur la carte.\\
+\end{itemize}
+
+\textbf{Sélection d'une préférence} 
+
+Permet de choisir un itinéraire selon ses préférences, de distance et de sécurité.\\
+
+\textbf{Affichage d'informations géographiques}
+
+\begin{itemize}
+\item Couverture Géovélo: Afficher un cadre qui permet de visualiser la zone géographique couverte par Géovélo; 
+\item Loueur/réparateur/vente: Afficher l'ensemble des professionnels du vélo;
+\item Lieux universitaires:  Afficher les principaux lieux universitaires sur l'agglomération. On peut cliquer sur chaque point d'intérêt pour obtenir des informations supplémentaires;
+\item Loire à vélo: Afficher le tracé de la Loire à vélo.\\
+ 
+ \end{itemize}
+
+\textbf{Affichage des détails de l'itinéraire}
+
+Après avoir saisi le départ et la destination, Géovélo nous donne la solution avec la distance et le temps estimé. Nous pouvons cliquer sur la feuille de route pour obtenir des informations détaillées. Nous pouvons cliquer sur "lien de cette page" pour obtenir un lien vers un itinéraire de manière à pouvoir le partager par mail ou autre.
+
+\newpage
+
+\begin{figure}[!ht]
+\label{fig:Le diagrammes de cas d'utilisation}
+\centering
+\includegraphics[scale=0.6]{images/UseCase.png}
+\caption{Le diagrammes de cas d'utilisation de Géovélo}
+\end{figure}
+% Section : 	Contraintes de développement, d'exploitation et de maintenance	
+\section{Contraintes de développement, d'exploitation et de maintenance}
+% Subsection : Contraintes de développement
+\subsubsection{Contraintes de développement}
+
+Pendant ce projet de fin d'étude, il est nécessaire d'utiliser différents langages et outils:\\
+ 
+Calcul d'itinéraires: \textsc{C++}, \textsc{LEDA}
+
+Site web: \textsc{HTML}, \textsc{CSS}, \textsc{PHP}, \textsc{AJAX}, \textsc{API Google Maps}
+
+Base de données: \textsc{PostgreSQL}, \textsc{PostGIS}\\
+
+Parmi ces technologies, je ne connais pas encore \textsc{LEDA}, \textsc{AJAX}, \textsc{API Google Maps}, \textsc{PostgreSQL}, \textsc{PostGIS}, donc je vais essentiellement les présenter ci-dessous.\\
+
+\begin{itemize}
+\item \textsc{LEDA} : LEDA (The Library of Efficient Data types and Algorithms) est une librairie C++ qui offre une grande variété d'algorithmes et de structures adaptés aux graphes et aux calculs géométriques. Dans mon projet il est nécessaire de calculer un itinéraire sur la carte, donc c'est plus facile de calculer l'itinéraire en utilisant cette librairie existante.\\
+\item \textsc{AJAX} : AJAX (Asynchronous JavaScript and XML) est une technique de développement web. Il permet de créer des applications web interactives. Le plus gros avantage est qu'avec l'utilisation de AJAX, il est possible de maintenir des données sans besoin de rafraîchir la page toute entière. Les applications web peuvent rendre une réponse à l'utilisateur plus rapidement et éviter d'envoyer les informations qui n'ont pas besoin d'être modifiées.\\  
+\item \textsc{XAJAX} : XAJAX est un framework open source utilisant le langage PHP, il permet d'utiliser le langage PHP pour développer des fonctionnalités AJAX sans connaître le langage JavaScript.\\ 
+\item \textsc{API Google Maps} : Nous savons que Google Maps est un outil utilisé pour suivre l'emplacement actuel, les conditions en temps réel du trafic, mais il offre aussi un outil de recherche, et l'API Google Maps permet d'intégrer Google Maps dans son propre site en utilisant JavaScript. Ensuite il est possible de développer avec JavaScript pour manipuler la carte.\\
+\item \textsc{PostgreSQL} : PostgreSQL est un système de gestion de base de données relationnelles. Actuellement, il est un des systèmes les plus puissants, le plus riche en fonctionnalités et le plus complexe des bases de données du logiciel libre. Il fonctionne principalement sous le système UNIX (Linux, FreeBSD, Ubuntu...).\\
+\item \textsc{PostGIS} : PostGIS est une extension qui ajoute la capacité de gestion des données spatiales sur le système PostgreSQL. Il offre des fonctionnalités comme les objets spatiaux, l'indexation spatial, les fonctions de manipulation spatiales et les opérateurs. En résumé il permet de manipuler des données géographiques facilement.	
+\end{itemize}
+
+\newpage
+	
+\chapter{Architecture générale du système}
+\label{sec:archi}
+
+\begin{figure}[!ht]
+\label{fig:L'architecture principale de Géovélo}
+\centering
+\includegraphics[scale=0.9]{images/2_3_1.png}
+\caption{L'architecture principale de Géovélo}
+\end{figure}
+
+L'image ci-dessus est l'architecture principale de Géovélo. Sur le site web Géovélo, quand l'utilisateur consulte des 	informations statiques qui n'ont pas besoin de calculer d'itinéraires (par exemple affichage de la couverture, affichage de la Loire à vélo etc), le site web Géovélo peut interroger directement la base de données.\\
+
+Quand l'utilisateur demande un itinéraire, le site web Géovélo doit adopter la deuxième méthode: il va utiliser le protocole RPC pour communiquer avec le serveur de calcul d'itinéraire. Le serveur reçoit les requêtes, et puis il traite les données et retourne le résultat au site web.\\
+
+\textsc{XMLRPC} : RPC (Remote procedure call) est une technique qui permet \`a deux machines de communiquer ou d'échanger des données au format XML. Il est utilisé pour échanger des informations entre des pages du site et le serveur de calcul d'itinéraire.\\
+
+\newpage
+
+\begin{figure}[!ht]
+\label{fig:L'architecture du site Géovélo}
+\centering
+\includegraphics[scale=0.8]{images/2_3_2.png}
+\caption{L'architecture du site Géovélo}
+\end{figure}
+	
+Les fichiers principaux sont:\\
+
+\begin{itemize}
+\item \texttt{index.php} :La page d'accueil de site Géovélo qui affiche les éléments principaux et appelle les autres pages ;\\ 
+\item \texttt{connexionBD.inc.php} : La page consiste à se connecter à la base de données ;\\
+\item \texttt{deconnexionBD.inc.php} : La page consiste à se déconnecter de la base de données ;\\
+\item \texttt{cDatabase.php} : La page consiste à créer une classe de gestion d'une connexion. Cette classe permet de gérer toutes les connexions vers la base de données ;\\
+\item \texttt{index.common.php} : La page consiste à déclarer des librairies, instancier des objets XAJAX ;\\
+\item \texttt{interfacegmaps.js} : La page consiste à gérer des codes \textsc{Javascript} pour l'interface Google maps ;\\
+\item \texttt{index.server.php} : La page consiste à créer des fonctions \textsc{XAJAX} de calcul d'itinéraire, appeler la fonction \textsc{XMLRPC} du serveur pour calculer un ensemble de solutions.
+\end{itemize}
+
+% Chapter : Description des Besoins
+\chapter{Description des Besoins}
+\label{sec:fonctions}
+% Section : 	Besoins fonctionnels
+\section{Besoins fonctionnels}
+Nous avons identifié les besoins fonctionnels suivants. Ces besoins identifient le travail à réaliser dans le cadre du projet .\\
+		
+\begin{itemize}
+\item Besoin 1 : Implémenter \textsc{BCA* Algorithm} en \textsc{C++} sous la forme d'un web service ; 
+			
+Il consiste à lire d'abord des sources et comprendre la fonctionnalité d'algorithme existant, et puis implémenter \textsc{BCA* Algorithm} pour deux critères (distance et sécurité), enfin tester la fonctionnalité et la compatibilité ;\\
+
+\textsc{BCA* Algorithm} est une méthode multi-objective. Cet algorithme prend en paramètre les préférences de l'utilisateur (poids sur chaque critère), après il retourne l'itinéraire le plus adapté aux préférences de l'utilisateur.  Cet algorithme explore en priorité les labels les plus "prometteurs" et éliminent ceux qui ne sont pas intéressants.\\
+			
+\item Besoin 2 : Ajouter des nouveaux critères ;
+			
+Cette tâche consiste à modéliser de nouveaux critères (difficulté, simplicité, attrait touristique) en collaboration avec 3 étudiants du DA dont leur sujet porte sur la sécurité, l'effort et le tourisme,  après on va récupérer les données et ajouter les attributs nécessaires sur la base de données avec l'aide de l'outil \textsc{PostGIS}, enfin nous utilisons \textsc{BCA* Algorithm} tester la fonctionnalité et la compatibilité ;\\
+		
+\item Besoin 3 : Modifier l'interface du site web. 
+			
+Nous allons implémenter un nouvel algorithme et ajouter les nouveaux critères pour le site web Géovélo, donc il faut utiliser le langage \textsc{PHP/AJAX/CSS} pour modifier la zone des préférences. Le modèle est comme l'image ci-dessous ;
+\end{itemize}
+
+\begin{figure}[!ht]
+\label{fig:Le modèle de vos préférence}
+\centering
+\includegraphics[scale=0.5]{images/3_1_1.png}
+\caption{Le modèle de vos préférence}
+\end{figure}
+		
+\section{Besoins non fonctionnels}
+
+\begin{itemize}
+\item Besoin 4 : En terme de fiabilité, le site web Géovélo devra être stable et devra supporter une charge d'environ 5000 visiteurs / mois;
+\item Besoin 5 : La documentation d'installation et de configuration doit être rédigée ;
+\item Besoin 6 : Les commentaires du code source doivent être lisibles et compréhensibles ;
+\item Besoin 7 : Le temps de calcul d'un itinéraire doit être inférieur à 3 secondes ;
+\item Besoin 8 : L'interface du site web Géovélo doit être conviviale et ergonomique .
+\end{itemize}
+
+% Chapter : Découpage du projet en tâches
+\chapter{Découpage du projet en tâches}
+Ce projet sera séparé en 10 tâches:
+
+\begin{itemize}
+\item Tâche 1 : La familiarisation avec les algorithmes ;
+\item Tâche 2 : La familiarisation avec le fonctionnement de Géovélo ;
+\item Tâche 3 : Configuration de l'environnement ;
+\item Tâche 4 : Rédaction du guide ;
+\item Tâche 5 : Étude de l'existant ;
+\item Tâche 6 : Implémentation du \textsc{BCA* Algorithm} ;
+\item Tâche 7 : Prise en main \textsc{PostGIS/PostgreSQL} ;
+\item Tâche 8 : Modéliser les critères ;
+\item Tâche 9 : Implémentation des nouveaux critères ;
+\item Tâche 10 : Prise en main \textsc{AJAX} ;
+\item Tâche 11 : Modification de l'interface site web ;
+\item Tâche 12 : Rédaction du rapport .
+\end{itemize}
+% Section : 	Tâche 1 : La familiarisation avec les algorithmes	
+\section{Tâche 1 : La familiarisation avec les algorithmes}
+\subsubsection{Description de la tâche}
+Il s'agit de comprendre les algorithmes du projet. Le projet précédent est développé en utilisant le plus court chemin (une version multi-critère de l'algorithme de Dijkstra \cite{Dijkstra1959}). Tout d'abord, je dois bien comprendre le mécanisme de \textsc{Dijkstra Algorithm}. Et puis, je dois lire le document de l'algorithme de BCA*\cite{FP2000} pour implémenter le nouvel algorithme pour ce projet. Cette partie est la plus importante pour faciliter les taches suivantes .
+\subsubsection{Estimation de charge}
+Cette partie est la plus importante, dont je passerai beaucoup de temps. Pour cette partie, de 23-09-09 à 25-10-09 .
+% Section : Tâche 2 : La familiarisation de le fonctionnement de Géovélo
+\section{Tâche 2 : La familiarisation de le fonctionnement de Géovélo}
+\subsubsection{Description de la tâche}
+Cette tâche consiste à comprendre le fonctionnement de Géovélo. Lire le rapport de PFE de l'année dernière\cite{Zhang2009}, comprendre l'architecture et les fonctionnalités.
+\subsubsection{Estimation de charge}	
+De 09-10-09 à 25-10-09
+% Section : Tâche 3 : Configuration de l'environnement
+\section{Tâche 3 : Configuration de l'environnement}
+\subsubsection{Description de la tâche}
+Parce que le projet fonctionne sous Ubuntu, cette tâche consiste à configurer l'environnement de Ubuntu et à installer les outils sous Ubuntu.
+\subsubsection{Estimation de charge}
+De 01-10-09 à 08-10-09  
+% Section : Tâche 4 : Rédaction du guide
+\section{Tâche 4 : Rédaction du guide}
+\subsubsection{Description de la tâche}
+Cette tâche consiste à rédiger la documentation pour expliquer comment mettre en place le projet sous Ubuntu.
+\subsubsection{Estimation de charge}
+De 05-10-09 à 08-10-09
+% Section : Tâche 5 : Étude de l'existant
+\section{Tâche 5 : Étude de l'existant}
+\subsubsection{Description de la tâche}
+Cette tâche consiste à lire les sources et à comprendre le fonctionnement de chaque fichier.
+\subsubsection{Estimation de charge}
+De 09-10-09 à 25-10-09
+% Section : Tâche 6 : Implémentation du nouvel algorithme
+\section{Tâche 6 : Implémentation du nouvel algorithme}
+\subsubsection{Description de la tâche}
+C'est la partie de codage. On va d'abord implémenter \textsc{BCA* Algorithm} pour deux critères (distance et sécurité), et puis tester la fonctionnalité de ce nouvel algorithme, on va aussi comparer les deux algorithmes.\\
+			
+Par exemple, on va créer un programme simple qui pourra lancer 1000 tests pour calculer des itinéraires différents en l'algorithme original et l'algorithme BCA*, puis on pourra mettre les résultats dans un fichier. Il contient des données des itinéraires et des temps de calcul. Alors, on pourra utiliser des données pour vérifier la exactitude et vérifier si cet algorithme est meilleur que l'algorithme original.
+\subsubsection{Estimation de charge}
+De 26-10-09 à 15-12-09
+% Section : Tâche 7 : Prise en main PostGIS
+\section{Tâche 7 : Prise en main PostGIS}
+\subsubsection{Description de la tâche}
+Cette tâche consiste à prendre en main l'outil \textsc{PostGIS}. 
+\subsubsection{Estimation de charge}
+De 25-12-09 à 30-12-09
+% Section :  Modéliser les critères
+\section{Tâche 8 : Modéliser les critères}
+\subsubsection{Description de la tâche}
+Cette tâche consiste à modéliser de nouveaux critères en collaboration avec 3 étudiants du DA dont leur sujet porte sur la sécurité, l'effort et le tourisme. Et puis on va ajouter les nouveaux critères dans la base de données avec l'aide de l'outil \textsc{PostGIS}. Cela implique de récupérer et d'intégrer de nouvelles données.
+\subsubsection{Estimation de charge}
+De 25-12-09 à 30-12-09 
+% Section : Tâche 9 : Implémentation des nouveaux critères
+\section{Tâche 9 : Implémentation des nouveaux critères}
+\subsubsection{Description de la tâche}
+Cette tâche consiste à modifier les sources de la méthode BCA* pour adapter les nouveaux critères.
+\subsubsection{Estimation de charge}
+De 31-12-09 à 19-02-10 
+% Section : Tâche 10 : Prise en main AJAX
+\section{Tâche 10 : Prise en main AJAX}
+\subsubsection{Description de la tâche}
+Dans cette partie, on va commencer par modifier l'interface du site web Géovélo. Il faut connaître les langages \textsc{HTML/CSS/PHP/AJAX}. Parmi ces langages, je ne connais pas le langage \textsc{AJAX}, donc je dois prendre en main \textsc{AJAX}.
+\subsubsection{Estimation de charge}
+De 26-02-10 à 02-03-10
+% Section : Tâche 11 : Modification de l'interface du site web
+\section{Tâche 11 : Modification de l'interface du site web}
+\subsubsection{Description de la tâche}
+Dans ce projet, on va ajouter les nouveaux critères pour le site web Géovélo, donc on doit modifier la zone des préférences. Elle consiste à ajouter des champs et boutons pour les nouveaux critères. Ensuite on devra tester ce site sur les différents navigateurs existants (Firefox, InternetExplorer, Opera, Safari...).
+\subsubsection{Estimation de charge}
+De 03-03-10 à 15-03-10
+% Section : Tâche 12 : Rédaction du rapport
+\section{Tâche 12 : Rédaction du rapport}
+\subsubsection{Description de la tâche}
+Cette tâche consiste à écrire le rapport et le guide d'installation .
+\subsubsection{Estimation de charge}	
+De 09-04-10 à 22-04-10
+
+% Chapter : Planning 	
+\chapter{Planning}
+Afin de réaliser ce projet, il faut respecter les échéanciers suivants.
+
+\begin{figure}[!ht]
+\label{fig:Diagramme de gantt du projet}
+\centering
+\includegraphics[scale=0.8]{images/1.pdf}
+\caption{Diagramme de gantt du projet}
+\end{figure}
+
+\newpage
+
+\begin{figure}[!ht]
+\label{fig:Diagramme de gantt du projet}
+\centering
+\includegraphics[scale=0.8]{images/2.pdf}
+\caption{Diagramme de gantt du projet}
+\end{figure}
+
+
